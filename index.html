@@ -6,7 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bryan Kum | Portfolio</title>
 
-  <link rel="icon" type="image/x-icon" href="https://avatars.githubusercontent.com/u/177133275?u=159f935c70c9df875228de233abac6d47f559966&v=4&size=234">
+  <link rel="icon" type="image/x-icon"
+    href="https://avatars.githubusercontent.com/u/177133275?u=159f935c70c9df875228de233abac6d47f559966&v=4&size=234">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
 
@@ -370,7 +371,7 @@
           <li>Developed a guided responsive React web dashboard for personal expense tracking.</li>
           <li>Utilized modals for CRUD operations and ensured mobile-friendly layouts.</li>
           <li>Deployed via <a href="https://bkum-05.github.io/M4-Dashboard/"
-              style="color: var(--primary); font-weight: 600;">GitHub Pages</a>.</li>
+              style="color: var(--primary); font-weight: 600;" target="_blank">GitHub Pages</a>.</li>
         </ul>
         <a href="https://github.com/BKum-05/M4-Dashboard" target="_blank" class="gh-link">
           <i class="fa-brands fa-github"></i> View on GitHub
@@ -389,7 +390,7 @@
       document.getElementById('main-footer').innerHTML = `<footer style="text-align:center; padding: 4rem; opacity: 0.3;">© ${new Date().getFullYear()} Bryan Kum</footer>`;
     });
 
-// TIMELINE ANIMATION (REPEATING)
+    // TIMELINE ANIMATION (REPEATING)
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add('show');
@@ -405,7 +406,7 @@
       const filler = document.querySelector('.timeline-filler');
       const rect = timeline.getBoundingClientRect();
       const viewHeight = window.innerHeight;
-      let progress = (viewHeight - rect.top) / (rect.height + viewHeight/2) * 100;
+      let progress = (viewHeight - rect.top) / (rect.height + viewHeight / 2) * 100;
       filler.style.height = `${Math.min(Math.max(progress, 0), 100)}%`;
     });
   </script>
