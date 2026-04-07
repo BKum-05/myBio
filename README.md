@@ -1,7 +1,7 @@
-🚀 Portfolio | Bryan Kum
+🚀 Portfolio | Bryan Kum Zhan Kin
 Welcome to my personal portfolio repository! This site serves as a digital hub for my academic journey at TAR UMT, my professional certifications, and my ongoing projects in Web Development and Cybersecurity.
 
-🌐 Live Site: https://BKum-05.github.io/
+🌐 Live Site: [https://BKum-05.github.io/](https://bkum-05.github.io/myBio/)
 
 👨‍💻 About Me
 I am a multi-disciplinary IT student currently pursuing a Bachelor in IT (Honours) in Software Systems Development at TAR UMT Penang. I am passionate about building secure, user-centric digital experiences and maintaining a defensive security mindset in software architecture.
