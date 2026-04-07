@@ -9,9 +9,10 @@
   <link rel="icon" type="image/x-icon"
     href="https://avatars.githubusercontent.com/u/177133275?u=159f935c70c9df875228de233abac6d47f559966&v=4&size=234">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
+    /* --- 1. CORE VARIABLES --- */
     :root {
       --primary: #818cf8;
       --accent: #a855f7;
@@ -20,6 +21,12 @@
       --border: rgba(255, 255, 255, 0.08);
       --text-main: #f8fafc;
       --text-muted: #94a3b8;
+    }
+
+    /* --- 2. GLOBAL STYLES --- */
+    * {
+      box-sizing: border-box;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     body {
@@ -34,28 +41,38 @@
       overflow-x: hidden;
     }
 
-    * {
-      box-sizing: border-box;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
     .container {
       max-width: 1000px;
       margin: 0 auto;
       padding: 0 2rem;
     }
 
-    /* NAVIGATION */
+    /* --- 3. NAVIGATION & PROGRESS BAR --- */
+    #progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      background: var(--primary);
+      z-index: 9999;
+      width: 0%;
+      box-shadow: 0 0 10px var(--primary);
+    }
+
     .navbar {
       position: sticky;
       top: 0;
       z-index: 1000;
-      display: flex;
-      justify-content: center;
       padding: 1.2rem;
       background: rgba(15, 23, 42, 0.8);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
+    }
+
+    .nav-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .nav-links {
@@ -81,7 +98,48 @@
       text-shadow: 0 0 8px var(--primary);
     }
 
-    /* HERO */
+    /* Hamburger & Mobile Menu */
+    .nav-icon-btn {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 5px 12px;
+      border-radius: 8px;
+      display: none;
+    }
+
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 70%;
+      height: 100vh;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(20px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      z-index: 1000;
+      transition: right 0.4s ease;
+      border-left: 1px solid var(--border);
+    }
+
+    .mobile-menu.open {
+      right: 0;
+    }
+
+    .mobile-menu a {
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    /* --- 4. HERO SECTION --- */
     .hero-inner {
       display: grid;
       grid-template-columns: 1.2fr 0.8fr;
@@ -101,7 +159,6 @@
       -webkit-text-fill-color: transparent;
       font-size: clamp(2.5rem, 5vw, 3.5rem);
       font-weight: 800;
-      display: block;
     }
 
     .badge {
@@ -136,8 +193,7 @@
       object-fit: cover;
     }
 
-
-    /* EDUCATION TIMELINE */
+    /* --- 5. TIMELINE SECTION --- */
     .timeline-container {
       position: relative;
       max-width: 1000px;
@@ -191,7 +247,7 @@
       border-radius: 24px;
     }
 
-    /* BENTO EXPERTISE */
+    /* --- 6. BENTO & PROJECTS --- */
     .bento-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -206,7 +262,6 @@
       border-radius: 24px;
     }
 
-    /* FEATURED PROJECT - FIXED FOR TEXT ONLY */
     .project-card {
       background: #1e293b;
       border: 1px solid var(--border);
@@ -217,16 +272,10 @@
 
     .project-card h3 {
       font-size: 2rem;
-      margin-top: 0;
       color: var(--primary);
     }
 
-    .project-card ul {
-      color: var(--text-muted);
-      padding-left: 1.2rem;
-    }
-
-    .project-card a.gh-link {
+    .gh-link {
       background: var(--primary);
       color: white;
       padding: 12px 24px;
@@ -237,15 +286,7 @@
       font-weight: 600;
     }
 
-    /* FOOTER */
-    footer {
-      text-align: center;
-      padding: 4rem 2rem;
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      border-top: 1px solid var(--border);
-    }
-
+    /* --- 7. RESPONSIVE QUERIES --- */
     @media (max-width: 800px) {
       .hero-inner {
         grid-template-columns: 1fr;
@@ -263,8 +304,16 @@
         text-align: left !important;
       }
 
-      .project-card {
-        padding: 2rem;
+      .nav-links {
+        display: none;
+      }
+
+      .nav-icon-btn {
+        display: block;
+      }
+
+      .nav-wrapper {
+        justify-content: space-between;
       }
     }
   </style>
@@ -272,11 +321,21 @@
 
 <body>
 
+  <div id="progress-bar"></div>
+
   <nav class="navbar">
-    <ul class="nav-links">
-      <li><a href="index.html" class="active">About</a></li>
-      <li><a href="certifications.html">Certifications</a></li>
-    </ul>
+    <div class="container nav-wrapper">
+      <ul class="nav-links navbar-nav">
+        <li><a href="index.html">About</a></li>
+        <li><a href="certifications.html">Certifications</a></li>
+      </ul>
+      <button id="hamburger" class="nav-icon-btn">☰</button>
+    </div>
+
+    <div id="mobile-menu" class="mobile-menu">
+      <a href="index.html">About</a>
+      <a href="certifications.html">Certifications</a>
+    </div>
   </nav>
 
   <main class="container">
@@ -314,7 +373,6 @@
             <span style="color: var(--primary); font-weight: 800;">2026 — Present</span>
             <h3>Bachelor in IT (Honours) <br>(Software Systems Development)</h3>
             <p>TAR UMT Penang Branch</p>
-            <small></small>
           </div>
         </div>
         <div class="timeline-item">
@@ -358,8 +416,8 @@
         <h3>Expense Tracker Dashboard</h3>
         <p>A financial management tool built for clarity and speed.</p>
         <ul>
-          <li>Developed a guided responsive React web dashboard for personal expense tracking.</li>
-          <li>Utilized modals for CRUD operations and ensured mobile-friendly layouts.</li>
+          <li>Developed a guided responsive React web dashboard.</li>
+          <li>Utilized modals for CRUD operations.</li>
           <li>Deployed via <a href="https://bkum-05.github.io/M4-Dashboard/"
               style="color: var(--primary); font-weight: 600;" target="_blank">GitHub Pages</a>.</li>
         </ul>
@@ -373,6 +431,7 @@
   <footer id="main-footer"></footer>
 
   <script>
+    // 1. Fetch External Footer
     fetch('footer.html').then(res => res.text()).then(html => {
       document.getElementById('main-footer').innerHTML = html;
       if (document.getElementById('current-year')) document.getElementById('current-year').textContent = new Date().getFullYear();
@@ -380,26 +439,30 @@
       document.getElementById('main-footer').innerHTML = `<footer style="text-align:center; padding: 4rem; opacity: 0.3;">© ${new Date().getFullYear()} Bryan Kum</footer>`;
     });
 
-    // TIMELINE ANIMATION (REPEATING)
+    // 2. Timeline Animation Observer
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add('show');
-        else entry.target.classList.remove('show'); // Repeatable
+        else entry.target.classList.remove('show');
       });
     }, { threshold: 0.2 });
-
     document.querySelectorAll('.timeline-item').forEach(item => observer.observe(item));
 
-    // PROGRESS LINE FILLER
+    // 3. Timeline Vertical Line Progress
     window.addEventListener('scroll', () => {
       const timeline = document.querySelector('.timeline-container');
       const filler = document.querySelector('.timeline-filler');
-      const rect = timeline.getBoundingClientRect();
-      const viewHeight = window.innerHeight;
-      let progress = (viewHeight - rect.top) / (rect.height + viewHeight / 2) * 100;
-      filler.style.height = `${Math.min(Math.max(progress, 0), 100)}%`;
+      if (timeline && filler) {
+        const rect = timeline.getBoundingClientRect();
+        const viewHeight = window.innerHeight;
+        let progress = (viewHeight - rect.top) / (rect.height + viewHeight / 2) * 100;
+        filler.style.height = `${Math.min(Math.max(progress, 0), 100)}%`;
+      }
     });
   </script>
+
+  <script src="assets/js/main.js"></script>
+
 </body>
 
 </html>
