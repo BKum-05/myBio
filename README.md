@@ -1,11 +1,33 @@
-👋 Hi, I'm Bryan Kum!
-I’m a Computer Science student at TAR UMT, passionate about learning and building projects in technology.
+🚀 Portfolio | Bryan Kum
+Welcome to my personal portfolio repository! This site serves as a digital hub for my academic journey at TAR UMT, my professional certifications, and my ongoing projects in Web Development and Cybersecurity.
 
-🔧 Technologies I work with:
-Languages: HTML, CSS, PHP, Java, JavaScript
+🌐 Live Site: https://BKum-05.github.io/
 
-Concepts: Object-Oriented Programming (OOP)
+👨‍💻 About Me
+I am a multi-disciplinary IT student currently pursuing a Bachelor in IT (Honours) in Software Systems Development at TAR UMT Penang. I am passionate about building secure, user-centric digital experiences and maintaining a defensive security mindset in software architecture.
 
-Databases: MySQL
+🛠️ Technical Stack
+Frontend: HTML5, CSS3 (Modular Architecture), JavaScript (ES6+), React
 
-Feel free to explore my repositories, where I share my coding projects, learnings, and experiments. I'm always open to feedback and collaboration!
+Tools & Platforms: Git/GitHub, GitHub Pages, Figma (UI/UX)
+
+Focus Areas: Software Development, Cybersecurity, Data Science with Python
+
+📜 Featured Certifications
+I actively pursue industry-standard qualifications to bridge the gap between academia and industry. Verified achievements include:
+
+Google: Cybersecurity Professional & UX Design
+
+Cisco: Introduction to Cybersecurity
+
+Programming: Python Essentials & Software Engineering
+
+📂 Project Highlights
+Modular Portfolio: A clean, responsive personal website using externalized CSS/JS and dynamic component loading.
+
+Expense Tracker Dashboard: A React-based financial tool for CRUD operations and mobile-responsive budgeting.
+
+📬 Connect with Me
+Location: Penang, Malaysia
+
+GitHub: @BKum-05
