@@ -1,201 +1,408 @@
 <!DOCTYPE html>
-<html lang="english">
+<html lang="en">
 
 <head>
-  <title>Digithon Innovation Festival</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta charset="utf-8" />
-  <meta property="twitter:card" content="summary_large_image" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link rel="icon" type="image/jpeg" href="bio.jpg" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bryan Kum | Portfolio</title>
 
-  <style data-tag="reset-style-sheet">
-    html {
-      line-height: 1.15;
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root {
+      --primary: #818cf8;
+      --accent: #a855f7;
+      --bg-dark: #0f172a;
+      --card-bg: rgba(30, 41, 59, 0.5);
+      --border: rgba(255, 255, 255, 0.08);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
     }
 
     body {
+      font-family: 'Inter', sans-serif;
       margin: 0;
+      background-color: var(--bg-dark);
+      background-image:
+        radial-gradient(circle at 0% 0%, rgba(129, 140, 248, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 100% 100%, rgba(168, 85, 247, 0.08) 0%, transparent 40%);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
     }
 
     * {
       box-sizing: border-box;
-      border-width: 0;
-      border-style: solid;
-      -webkit-font-smoothing: antialiased;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    p,
-    li,
-    ul,
-    pre,
-    div,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    figure,
-    blockquote,
-    figcaption {
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* NAVIGATION */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      padding: 1.2rem;
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
       margin: 0;
       padding: 0;
     }
 
-    button {
-      background-color: transparent;
-    }
-
-    button,
-    input,
-    optgroup,
-    select,
-    textarea {
-      font-family: inherit;
-      font-size: 100%;
-      line-height: 1.15;
-      margin: 0;
-    }
-
-    button,
-    select {
-      text-transform: none;
-    }
-
-    button,
-    [type="button"],
-    [type="reset"],
-    [type="submit"] {
-      -webkit-appearance: button;
-      color: inherit;
-    }
-
-    button::-moz-focus-inner,
-    [type="button"]::-moz-focus-inner,
-    [type="reset"]::-moz-focus-inner,
-    [type="submit"]::-moz-focus-inner {
-      border-style: none;
-      padding: 0;
-    }
-
-    button:-moz-focus,
-    [type="button"]:-moz-focus,
-    [type="reset"]:-moz-focus,
-    [type="submit"]:-moz-focus {
-      outline: 1px dotted ButtonText;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: inherit;
-    }
-
-    input {
-      padding: 2px 4px;
-    }
-
-    img {
-      display: block;
-    }
-
-    details {
-      display: block;
-      margin: 0;
-      padding: 0;
-    }
-
-    summary::-webkit-details-marker {
-      display: none;
-    }
-
-    [data-thq="accordion"] [data-thq="accordion-content"] {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease-in-out;
-      padding: 0;
-    }
-
-    [data-thq="accordion"] details[data-thq="accordion-trigger"][open]+[data-thq="accordion-content"] {
-      max-height: 1000vh;
-    }
-
-    details[data-thq="accordion-trigger"][open] summary [data-thq="accordion-icon"] {
-      transform: rotate(180deg);
-    }
-
-    html {
-      scroll-behavior: smooth
-    }
-  </style>
-  <style data-tag="default-style-sheet">
-    html {
-      font-family: Inter;
-      font-size: 16px;
-    }
-
-    body {
-      font-weight: 400;
-      font-style: normal;
+    .navbar a {
       text-decoration: none;
-      text-transform: none;
-      letter-spacing: normal;
-      line-height: 1.15;
-      color: var(--dl-color-theme-neutral-dark);
-      background: var(--dl-color-theme-neutral-light);
+      font-weight: 600;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
 
-      fill: var(--dl-color-theme-neutral-dark);
+    .navbar a:hover,
+    .navbar a.active {
+      color: var(--primary);
+      text-shadow: 0 0 8px var(--primary);
+    }
+
+    /* HERO */
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: center;
+      gap: 3rem;
+      background: var(--card-bg);
+      padding: 3.5rem;
+      border-radius: 40px;
+      border: 1px solid var(--border);
+      margin-top: 4rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .name-gradient {
+      background: linear-gradient(to right, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 800;
+      display: block;
+    }
+
+    .badge {
+      padding: 6px 14px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      color: var(--primary);
+      border-radius: 100px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .cta-button {
+      background: var(--primary);
+      color: white;
+      padding: 14px 28px;
+      border-radius: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 10px 20px rgba(129, 140, 248, 0.2);
+    }
+
+    .hero-avatar {
+      width: 240px;
+      height: 240px;
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+      border: 4px solid var(--border);
+      animation: morphing 10s infinite alternate;
+      object-fit: cover;
+    }
+
+    @keyframes morphing {
+      0% {
+        border-radius: 30% 70% 70% 30%;
+      }
+
+      100% {
+        border-radius: 50% 50% 20% 80%;
+      }
+    }
+
+    /* EDUCATION TIMELINE */
+    .timeline-container {
+      position: relative;
+      max-width: 1000px;
+      margin: 4rem auto;
+      padding: 2rem 0;
+    }
+
+    .timeline-line {
+      position: absolute;
+      left: 50%;
+      width: 2px;
+      height: 100%;
+      background: var(--border);
+      transform: translateX(-50%);
+    }
+
+    .timeline-filler {
+      background: var(--primary);
+      width: 100%;
+      height: 0;
+    }
+
+    .timeline-item {
+      width: 50%;
+      padding: 0 30px;
+      position: relative;
+      opacity: 0;
+      transform: translateY(30px);
+      margin-bottom: 2rem;
+    }
+
+    .timeline-item.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .timeline-item:nth-child(odd) {
+      text-align: right;
+      margin-right: 50%;
+    }
+
+    .timeline-item:nth-child(even) {
+      text-align: left;
+      margin-left: 50%;
+    }
+
+    .timeline-content {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 1.5rem;
+      border-radius: 24px;
+    }
+
+    /* BENTO EXPERTISE */
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin: 3rem 0;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 2rem;
+      border-radius: 24px;
+    }
+
+    /* FEATURED PROJECT - FIXED FOR TEXT ONLY */
+    .project-card {
+      background: #1e293b;
+      border: 1px solid var(--border);
+      padding: 3.5rem;
+      border-radius: 32px;
+      margin-bottom: 4rem;
+    }
+
+    .project-card h3 {
+      font-size: 2rem;
+      margin-top: 0;
+      color: var(--primary);
+    }
+
+    .project-card ul {
+      color: var(--text-muted);
+      padding-left: 1.2rem;
+    }
+
+    .project-card a.gh-link {
+      background: var(--primary);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 12px;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 1.5rem;
+      font-weight: 600;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 4rem 2rem;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 800px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .timeline-line {
+        left: 20px;
+      }
+
+      .timeline-item {
+        width: 100% !important;
+        margin: 0 0 2rem 0 !important;
+        padding-left: 50px !important;
+        text-align: left !important;
+      }
+
+      .project-card {
+        padding: 2rem;
+      }
     }
   </style>
-  <link rel="stylesheet" href="https://unpkg.com/animate.css@4.1.1/animate.css" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet" href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css" />
 </head>
 
 <body>
-  <link rel="stylesheet" href="./style.css" />
-  <div>
-    <link href="./index.css" rel="stylesheet" />
-    <div class="desktop1-container">
-      <div class="desktop1-desktop1"><img src="bio.jpg" alt="codingdifference1113"
-          class="desktop1-codingdifference11" /><span class="desktop1-text1">Digithon
-          Innovation Festival</span><span class="desktop1-text2">Where Vision Meets Innovation</span>
 
-        <div class="social-media">
-          <a href="https://www.facebook.com/difcsstar" aria-label="Facebook" target="_blank">
-            <i class="fab fa-facebook social-icon"></i>
+  <nav class="navbar">
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">About</a></li>
+      <li><a href="certifications.html">Certifications</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-text">
+          <h1>Hi, I'm <span class="name-gradient">Bryan Kum</span></h1>
+          <p>A multi-disciplinary IT student at <strong>TAR UMT Penang</strong> focused on building secure, user-centric
+            digital experiences.</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.5rem 0;">
+            <span class="badge">Web Dev</span><span class="badge">UX Design</span>
+            <span class="badge">Cybersecurity</span><span class="badge">React</span>
+          </div>
+          <a href="assets/Resume - Bryan Kum Zhan Kin.pdf" class="cta-button" target="_blank">
+            <i class="fa-solid fa-file-pdf"></i> Download Resume
           </a>
-          <a href="https://www.linkedin.com/in/bryan-kum-11b184330" aria-label="LinkedIn" target="_blank">
-            <i class="fab fa-linkedin social-icon"></i>
-          </a>
-          <a href="https://www.instagram.com/difcsstar/" aria-label="Instagram" target="_blank">
-            <i class="fab fa-instagram social-icon"></i>
-          </a>
-          <a href="mailto:bryankzk-pm23@student.tarc.edu.my" aria-label="Email">
-            <i class="fas fa-envelope social-icon"></i>
         </div>
-
-        <a href="https://canva.link/8l5rrc289ex2uvk" target="_blank">
-          <div class="desktop1-group1"><span class="desktop1-text3">My Resume</span></div>
-        </a>
-        <a href="https://github.com/BKum-05/myBio/tree/main" target="_blank">
-          <div class="desktop1-group2"><span class="desktop1-text4">My Portfolio</span></div>
-        </a>
-        <span class="desktop1-text5">Created by Bryan Kum</span>
+        <div style="text-align: center;">
+          <img src="https://github.com/BKum-05.png" alt="Bryan" class="hero-avatar">
+          <p style="font-weight: 600; color: var(--text-muted); margin-top: 1rem;">
+            <i class="fa-solid fa-location-dot" style="color: #ef4444;"></i> Penang, Malaysia
+          </p>
+        </div>
       </div>
-    </div>
-  </div>
+    </section>
+
+    <section>
+      <h2 style="font-size: 2.2rem; font-weight: 800; margin-top: 4rem;">Education</h2>
+      <div class="timeline-container">
+        <div class="timeline-line">
+          <div class="timeline-filler"></div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <span style="color: var(--primary); font-weight: 800;">2026 — Present</span>
+            <h3>Bachelor in IT (Honours) <br>(Software Systems Development)</h3>
+            <p>TAR UMT Penang Branch</p>
+            <small></small>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <span style="color: var(--primary); font-weight: 800;">2023 — 2025</span>
+            <h3>Diploma in Computer Science</h3>
+            <p>TAR UMT Penang Branch</p>
+            <small>CGPA: 3.0762. Graduated with Merit.</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 style="font-size: 2.2rem; font-weight: 800;">Expertise</h2>
+      <div class="bento-grid">
+        <div class="card">
+          <i class="fa-solid fa-code"
+            style="color: var(--primary); font-size: 1.5rem; margin-bottom: 1rem; display: block;"></i>
+          <h3>Web Dev</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Modern frontend architecture.</p>
+        </div>
+        <div class="card">
+          <i class="fa-solid fa-shield-halved"
+            style="color: var(--primary); font-size: 1.5rem; margin-bottom: 1rem; display: block;"></i>
+          <h3>Security</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Defensive security mindset.</p>
+        </div>
+        <div class="card">
+          <i class="fa-solid fa-pen-nib"
+            style="color: var(--primary); font-size: 1.5rem; margin-bottom: 1rem; display: block;"></i>
+          <h3>UI/UX</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">User-centered wireframing.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 style="font-size: 2.2rem; font-weight: 800;">Featured Project</h2>
+      <div class="project-card">
+        <h3>Expense Tracker Dashboard</h3>
+        <p>A financial management tool built for clarity and speed.</p>
+        <ul>
+          <li>Developed a responsive React web dashboard for personal expense tracking.</li>
+          <li>Utilized modals for CRUD operations and ensured mobile-friendly layouts.</li>
+          <li>Deployed via <a href="https://bkum-05.github.io/M4-Dashboard/"
+              style="color: var(--primary); font-weight: 600;">GitHub Pages</a>.</li>
+        </ul>
+        <a href="https://github.com/BKum-05/M4-Dashboard" target="_blank" class="gh-link">
+          <i class="fa-brands fa-github"></i> View on GitHub
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer id="main-footer"></footer>
+
+  <script>
+    fetch('footer.html').then(res => res.text()).then(html => {
+      document.getElementById('main-footer').innerHTML = html;
+      if (document.getElementById('current-year')) document.getElementById('current-year').textContent = new Date().getFullYear();
+    }).catch(() => {
+      document.getElementById('main-footer').innerHTML = `<footer style="text-align:center; padding: 4rem; opacity: 0.3;">© ${new Date().getFullYear()} Bryan Kum</footer>`;
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('show'); });
+    }, { threshold: 0.2 });
+    document.querySelectorAll('.timeline-item').forEach(item => observer.observe(item));
+
+    window.addEventListener('scroll', () => {
+      const timeline = document.querySelector('.timeline-container');
+      const filler = document.querySelector('.timeline-filler');
+      if (!timeline || !filler) return;
+      const rect = timeline.getBoundingClientRect();
+      const viewHeight = window.innerHeight;
+      let progress = (viewHeight - rect.top) / (rect.height + viewHeight / 2) * 100;
+      filler.style.height = `${Math.min(Math.max(progress, 0), 100)}%`;
+    });
+  </script>
 </body>
 
 </html>
