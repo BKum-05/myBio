@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Certifications | Bryan Kum</title>
 
-  <link rel="icon" type="image/x-icon" href="https://avatars.githubusercontent.com/u/177133275?u=159f935c70c9df875228de233abac6d47f559966&v=4&size=234">
+  <link rel="icon" type="image/x-icon" href="https://avatars.githubusercontent.com/u/177133275?v=4&size=64">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
 
   <style>
     /* --- 1. CORE VARIABLES --- */
@@ -23,10 +22,7 @@
     }
 
     /* --- 2. GLOBAL STYLES --- */
-    * {
-      box-sizing: border-box;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
+    * { box-sizing: border-box; }
 
     body {
       font-family: 'Inter', sans-serif;
@@ -46,7 +42,7 @@
       padding: 0 2rem;
     }
 
-    /* --- 3. NAVIGATION & PROGRESS BAR --- */
+    /* --- 3. NAVIGATION --- */
     #progress-bar {
       position: fixed;
       top: 0;
@@ -89,6 +85,7 @@
       font-size: 0.85rem;
       letter-spacing: 1px;
       text-transform: uppercase;
+      transition: color 0.3s ease;
     }
 
     .navbar a:hover, .navbar a.active {
@@ -96,7 +93,6 @@
       text-shadow: 0 0 8px var(--primary);
     }
 
-    /* Hamburger & Mobile Menu */
     .nav-icon-btn {
       background: none;
       border: 1px solid var(--border);
@@ -108,26 +104,42 @@
       display: none;
     }
 
-    .mobile-menu {
+    /* Mobile Menu Fixed Logic */
+.mobile-menu {
       position: fixed;
       top: 0;
       right: -100%;
       width: 70%;
       height: 100vh;
-      background: rgba(15, 23, 42, 0.95);
+      background: rgba(15, 23, 42, 0.98);
       backdrop-filter: blur(20px);
-      display: flex;
+      /* CHANGED: Use flex only when open, otherwise hide it from the layout */
+      display: none;       
       flex-direction: column;
       justify-content: center;
       align-items: center;
       gap: 2rem;
-      z-index: 1000;
-      transition: right 0.4s ease;
+      z-index: 1001;
+      transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       border-left: 1px solid var(--border);
+      visibility: hidden;
+      pointer-events: none;
     }
 
-    .mobile-menu.open { right: 0; }
-    .mobile-menu a { text-decoration: none; font-size: 1.2rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; }
+    .mobile-menu.open { 
+      display: flex; /* Switch back to flex when active */
+      right: 0; 
+      visibility: visible; 
+      pointer-events: auto;
+    }
+    
+    .mobile-menu a { 
+      text-decoration: none; 
+      font-size: 1.2rem; 
+      font-weight: 700; 
+      color: var(--text-muted); 
+      text-transform: uppercase; 
+    }
 
     /* --- 4. PAGE HEADER --- */
     .page-header {
@@ -138,7 +150,7 @@
     .page-header h1 {
       font-size: clamp(2.5rem, 5vw, 3.5rem);
       font-weight: 800;
-      margin-bottom: 1rem;
+      margin: 0 0 1rem;
       background: linear-gradient(to right, var(--text-main), var(--primary));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -163,6 +175,7 @@
       text-align: center;
       text-decoration: none;
       color: inherit;
+      transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
     }
 
     .cert-card:hover {
@@ -196,7 +209,16 @@
       font-family: monospace;
     }
 
-    /* --- 6. RESPONSIVE QUERIES --- */
+    /* --- 6. FOOTER STYLES --- */
+    #main-footer {
+      margin-top: 5rem;
+      padding: 4rem 2rem;
+      border-top: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.3);
+      text-align: center;
+    }
+
+    /* --- 7. RESPONSIVE --- */
     @media (max-width: 900px) {
       .certs-grid { grid-template-columns: repeat(2, 1fr); }
       .nav-links { display: none; }
@@ -209,14 +231,13 @@
     }
   </style>
 </head>
-
 <body>
 
   <div id="progress-bar"></div>
 
   <nav class="navbar">
     <div class="container nav-wrapper">
-      <ul class="nav-links navbar-nav">
+      <ul class="nav-links">
         <li><a href="index.html">About</a></li>
         <li><a href="certifications.html" class="active">Certifications</a></li>
       </ul>
@@ -234,7 +255,7 @@
       <h1>My Learning Journey</h1>
       <p style="color: var(--text-muted);">
         Verified achievements via 
-        <a href="https://www.credly.com/users/kum-zhan-kin-bryan/badges#credly" 
+        <a href="https://www.credly.com/users/kum-zhan-kin-bryan/badges" 
            style="color: var(--primary); text-decoration: none; font-weight: 600;" 
            target="_blank">Credly <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
       </p>
@@ -281,17 +302,6 @@
 
   <footer id="main-footer"></footer>
 
-  <script>
-    // 1. Fetch External Footer
-    fetch('footer.html').then(res => res.text()).then(html => {
-      document.getElementById('main-footer').innerHTML = html;
-      if (document.getElementById('current-year')) {
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-      }
-    });
-  </script>
-
   <script src="assets/js/main.js"></script>
-
 </body>
 </html>
