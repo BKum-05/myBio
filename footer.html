@@ -1,0 +1,72 @@
+<div class="social-sidebar">
+    <a href="https://github.com/BKum-05" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+    <a href="https://www.linkedin.com/in/bryan-kum-11b184330" target="_blank" title="LinkedIn"><i
+            class="fa-brands fa-linkedin"></i></a>
+    <a href="mailto:bryankzk-pm23@student.tarc.edu.my" title="Email"><i class="fa-solid fa-envelope"></i></a>
+</div>
+
+<div class="footer-socials">
+    <a href="https://github.com/BKum-05"><i class="fa-brands fa-github"></i></a>
+    <a href="https://www.linkedin.com/in/bryan-kum-11b184330"><i class="fa-brands fa-linkedin"></i></a>
+    <a href="mailto:bryankzk-pm23@student.tarc.edu.my"><i class="fa-solid fa-envelope"></i></a>
+</div>
+<p>© 2023 – <span id="current-year"></span> Bryan Kum — Built with Passion in Malaysia</p>
+
+<style>
+    /* FLOATING SOCIAL SIDEBAR */
+    .social-sidebar {
+        position: fixed;
+        left: 2rem;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        background: rgba(255, 255, 255, 0.4);
+        padding: 1.5rem 0.8rem;
+        border-radius: 100px;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        z-index: 1000;
+    }
+
+    .social-sidebar a {
+        color: var(--text-muted);
+        font-size: 1.4rem;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .social-sidebar a:hover {
+        color: var(--primary);
+        transform: scale(1.2);
+    }
+
+    /* FOOTER SOCIALS */
+    .footer-socials {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .footer-socials a {
+        color: var(--text-muted);
+        font-size: 1.5rem;
+        text-decoration: none;
+    }
+
+    .footer-socials a:hover {
+        color: var(--primary);
+    }
+
+    /* HIDE SIDEBAR ON MOBILE */
+    @media (max-width: 1024px) {
+        .social-sidebar {
+            display: none;
+        }
+    }
+</style>
