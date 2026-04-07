@@ -30,4 +30,4 @@ Expense Tracker Dashboard: A React-based financial tool for CRUD operations and 
 📬 Connect with Me
 Location: Penang, Malaysia
 
-GitHub: @BKum-05
+GitHub: [@BKum-05](https://github.com/BKum-05)
