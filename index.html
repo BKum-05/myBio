@@ -388,18 +388,23 @@
       document.getElementById('main-footer').innerHTML = `<footer style="text-align:center; padding: 4rem; opacity: 0.3;">© ${new Date().getFullYear()} Bryan Kum</footer>`;
     });
 
+// TIMELINE ANIMATION (REPEATING)
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('show'); });
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('show');
+        else entry.target.classList.remove('show'); // Repeatable
+      });
     }, { threshold: 0.2 });
+
     document.querySelectorAll('.timeline-item').forEach(item => observer.observe(item));
 
+    // PROGRESS LINE FILLER
     window.addEventListener('scroll', () => {
       const timeline = document.querySelector('.timeline-container');
       const filler = document.querySelector('.timeline-filler');
-      if (!timeline || !filler) return;
       const rect = timeline.getBoundingClientRect();
       const viewHeight = window.innerHeight;
-      let progress = (viewHeight - rect.top) / (rect.height + viewHeight / 2) * 100;
+      let progress = (viewHeight - rect.top) / (rect.height + viewHeight/2) * 100;
       filler.style.height = `${Math.min(Math.max(progress, 0), 100)}%`;
     });
   </script>
