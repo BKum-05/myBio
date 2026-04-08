@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +10,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
 
   <style>
-    :root {
+    :root { 
       --primary: #818cf8;
       --accent: #a855f7;
       --bg-dark: #0f172a;
@@ -19,7 +20,9 @@
       --text-muted: #94a3b8;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       font-family: 'Inter', sans-serif;
@@ -33,38 +36,77 @@
       overflow-x: hidden;
     }
 
-    .container { max-width: 1000px; margin: 0 auto; padding: 0 2rem; }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
 
     /* Navigation */
     #progress-bar {
-      position: fixed; top: 0; left: 0; height: 4px;
-      background: var(--primary); z-index: 9999; width: 0%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      background: var(--primary);
+      z-index: 9999;
+      width: 0%;
       box-shadow: 0 0 10px var(--primary);
     }
 
     .navbar {
-      position: sticky; top: 0; z-index: 1000; padding: 1.2rem;
-      background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(16px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 1.2rem;
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
     }
 
-    .nav-wrapper { display: flex; justify-content: center; align-items: center; }
-    .nav-links { display: flex; gap: 2.5rem; list-style: none; margin: 0; padding: 0; }
+    .nav-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
     .navbar a {
-      text-decoration: none; font-weight: 600; color: var(--text-muted);
-      font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase;
+      text-decoration: none;
+      font-weight: 600;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
       transition: color 0.3s ease;
     }
-    .navbar a:hover, .navbar a.active { color: var(--primary); text-shadow: 0 0 8px var(--primary); }
+
+    .navbar a:hover,
+    .navbar a.active {
+      color: var(--primary);
+      text-shadow: 0 0 8px var(--primary);
+    }
 
     .nav-icon-btn {
-      background: none; border: 1px solid var(--border); color: var(--text-main);
-      font-size: 1.5rem; cursor: pointer; padding: 5px 12px; border-radius: 8px;
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 5px 12px;
+      border-radius: 8px;
       display: none;
     }
 
     /* Mobile Menu Fixed */
-.mobile-menu {
+    .mobile-menu {
       position: fixed;
       top: 0;
       right: -100%;
@@ -73,7 +115,7 @@
       background: rgba(15, 23, 42, 0.98);
       backdrop-filter: blur(20px);
       /* CHANGED: Use flex only when open, otherwise hide it from the layout */
-      display: none;       
+      display: none;
       flex-direction: column;
       justify-content: center;
       align-items: center;
@@ -85,73 +127,212 @@
       pointer-events: none;
     }
 
-    .mobile-menu.open { 
-      display: flex; /* Switch back to flex when active */
-      right: 0; 
-      visibility: visible; 
+    .mobile-menu.open {
+      display: flex;
+      /* Switch back to flex when active */
+      right: 0;
+      visibility: visible;
       pointer-events: auto;
     }
 
     .mobile-menu a {
-      text-decoration: none; font-size: 1.2rem; font-weight: 700;
-      color: var(--text-muted); text-transform: uppercase;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
     }
 
     /* Hero */
     .hero-inner {
-      display: grid; grid-template-columns: 1.2fr 0.8fr; align-items: center;
-      gap: 3rem; background: var(--card-bg); padding: 3.5rem;
-      border-radius: 40px; border: 1px solid var(--border);
-      margin-top: 4rem; backdrop-filter: blur(10px);
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: center;
+      gap: 3rem;
+      background: var(--card-bg);
+      padding: 3.5rem;
+      border-radius: 40px;
+      border: 1px solid var(--border);
+      margin-top: 4rem;
+      backdrop-filter: blur(10px);
     }
+
     .name-gradient {
       background: linear-gradient(to right, var(--primary), var(--accent));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 800;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 800;
     }
+
     .badge {
-      padding: 6px 14px; background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border); color: var(--primary);
-      border-radius: 100px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+      padding: 6px 14px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      color: var(--primary);
+      border-radius: 100px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
     }
+
     .cta-button {
-      background: var(--primary); color: white; padding: 14px 28px;
-      border-radius: 14px; font-weight: 700; text-decoration: none;
-      display: inline-flex; align-items: center; gap: 10px;
-      box-shadow: 0 10px 20px rgba(129, 140, 248, 0.2); transition: transform 0.3s ease;
+      background: var(--primary);
+      color: white;
+      padding: 14px 28px;
+      border-radius: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 10px 20px rgba(129, 140, 248, 0.2);
+      transition: transform 0.3s ease;
     }
-    .hero-avatar { width: 240px; height: 240px; border-radius: 50%; border: 4px solid var(--border); object-fit: cover; }
+
+    .hero-avatar {
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      border: 4px solid var(--border);
+      object-fit: cover;
+    }
 
     /* Timeline */
-    .timeline-container { position: relative; max-width: 1000px; margin: 4rem auto; padding: 2rem 0; }
-    .timeline-line { position: absolute; left: 50%; width: 2px; height: 100%; background: var(--border); transform: translateX(-50%); }
-    .timeline-filler { background: var(--primary); width: 100%; height: 0; transition: height 0.1s linear; }
-    .timeline-item { width: 50%; padding: 0 30px; position: relative; opacity: 0; transform: translateY(30px); margin-bottom: 2rem; transition: all 0.6s ease; }
-    .timeline-item.show { opacity: 1; transform: translateY(0); }
-    .timeline-item:nth-child(odd) { text-align: right; margin-right: 50%; }
-    .timeline-item:nth-child(even) { text-align: left; margin-left: 50%; }
-    .timeline-content { background: var(--card-bg); border: 1px solid var(--border); padding: 1.5rem; border-radius: 24px; }
+    .timeline-container {
+      position: relative;
+      max-width: 1000px;
+      margin: 4rem auto;
+      padding: 2rem 0;
+    }
+
+    .timeline-line {
+      position: absolute;
+      left: 50%;
+      width: 2px;
+      height: 100%;
+      background: var(--border);
+      transform: translateX(-50%);
+    }
+
+    .timeline-filler {
+      background: var(--primary);
+      width: 100%;
+      height: 0;
+      transition: height 0.1s linear;
+    }
+
+    .timeline-item {
+      width: 50%;
+      padding: 0 30px;
+      position: relative;
+      opacity: 0;
+      transform: translateY(30px);
+      margin-bottom: 2rem;
+      transition: all 0.6s ease;
+    }
+
+    .timeline-item.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .timeline-item:nth-child(odd) {
+      text-align: right;
+      margin-right: 50%;
+    }
+
+    .timeline-item:nth-child(even) {
+      text-align: left;
+      margin-left: 50%;
+    }
+
+    .timeline-content {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 1.5rem;
+      border-radius: 24px;
+    }
 
     /* Expertise */
-    .bento-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin: 3rem 0; }
-    .card { background: var(--card-bg); border: 1px solid var(--border); padding: 2rem; border-radius: 24px; transition: border-color 0.3s ease; }
-    .card:hover { border-color: var(--primary); }
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin: 3rem 0;
+    }
 
-    .project-card { background: #1e293b; border: 1px solid var(--border); padding: 3.5rem; border-radius: 32px; margin-bottom: 4rem; }
-    .gh-link { background: var(--primary); color: white; padding: 12px 24px; border-radius: 12px; text-decoration: none; display: inline-block; margin-top: 1.5rem; font-weight: 600; }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 2rem;
+      border-radius: 24px;
+      transition: border-color 0.3s ease;
+    }
 
-    #main-footer { margin-top: 5rem; padding: 4rem 2rem; border-top: 1px solid var(--border); background: rgba(15, 23, 42, 0.3); text-align: center; }
+    .card:hover {
+      border-color: var(--primary);
+    }
+
+    .project-card {
+      background: #1e293b;
+      border: 1px solid var(--border);
+      padding: 3.5rem;
+      border-radius: 32px;
+      margin-bottom: 4rem;
+    }
+
+    .gh-link {
+      background: var(--primary);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 12px;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 1.5rem;
+      font-weight: 600;
+    }
+
+    #main-footer {
+      margin-top: 5rem;
+      padding: 4rem 2rem;
+      border-top: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.3);
+      text-align: center;
+    }
 
     @media (max-width: 800px) {
-      .hero-inner { grid-template-columns: 1fr; text-align: center; }
-      .timeline-line { left: 20px; }
-      .timeline-item { width: 100% !important; margin: 0 0 2rem 0 !important; padding-left: 50px !important; text-align: left !important; }
-      .nav-links { display: none; }
-      .nav-icon-btn { display: block; }
-      .nav-wrapper { justify-content: space-between; }
+      .hero-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .timeline-line {
+        left: 20px;
+      }
+
+      .timeline-item {
+        width: 100% !important;
+        margin: 0 0 2rem 0 !important;
+        padding-left: 50px !important;
+        text-align: left !important;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .nav-icon-btn {
+        display: block;
+      }
+
+      .nav-wrapper {
+        justify-content: space-between;
+      }
     }
   </style>
 </head>
+
 <body>
   <div id="progress-bar"></div>
 
@@ -174,9 +355,10 @@
       <div class="hero-inner">
         <div class="hero-text">
           <h1>Hi, I'm <span class="name-gradient">Bryan Kum</span></h1>
-          <p>A multi-disciplinary IT student at <strong>TAR UMT Penang</strong> focused on building secure, user-centric digital experiences.</p>
+          <p>A multi-disciplinary IT student at <strong>TAR UMT Penang</strong> focused on building secure, user-centric
+            digital experiences.</p>
           <div style="display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.5rem 0;">
-            <span class="badge">Web Dev</span><span class="badge">UX Design</span>
+            <span class="badge">Web Development</span><span class="badge">UX Design</span>
             <span class="badge">Cybersecurity</span><span class="badge">React</span>
           </div>
           <a href="assets/Resume - Bryan Kum Zhan Kin.pdf" class="cta-button" target="_blank">
@@ -195,7 +377,9 @@
     <section>
       <h2 style="font-size: 2.2rem; font-weight: 800; margin-top: 4rem;">Education</h2>
       <div class="timeline-container">
-        <div class="timeline-line"><div class="timeline-filler"></div></div>
+        <div class="timeline-line">
+          <div class="timeline-filler"></div>
+        </div>
         <div class="timeline-item">
           <div class="timeline-content">
             <span style="color: var(--primary); font-weight: 800;">2026 — Present</span>
@@ -215,20 +399,23 @@
     </section>
 
     <section>
-      <h2 style="font-size: 2.2rem; font-weight: 800;">Expertise</h2>
+      <h2 style="font-size: 2.2rem; font-weight: 800;">Skills</h2>
       <div class="bento-grid">
         <div class="card">
-          <i class="fa-solid fa-code" style="color: var(--primary); font-size: 1.5rem; margin-bottom: 1rem; display: block;"></i>
-          <h3>Web Dev</h3>
+          <i class="fa-solid fa-code"
+            style="color: var(--primary); font-size: 1.5rem; margin-bottom: 1rem; display: block;"></i>
+          <h3>Web Development</h3>
           <p style="color: var(--text-muted); font-size: 0.9rem;">Modern frontend architecture.</p>
         </div>
         <div class="card">
-          <i class="fa-solid fa-shield-halved" style="color: var(--primary); font-size: 1.5rem; margin-bottom: 1rem; display: block;"></i>
+          <i class="fa-solid fa-shield-halved"
+            style="color: var(--primary); font-size: 1.5rem; margin-bottom: 1rem; display: block;"></i>
           <h3>Security</h3>
           <p style="color: var(--text-muted); font-size: 0.9rem;">Defensive security mindset.</p>
         </div>
         <div class="card">
-          <i class="fa-solid fa-pen-nib" style="color: var(--primary); font-size: 1.5rem; margin-bottom: 1rem; display: block;"></i>
+          <i class="fa-solid fa-pen-nib"
+            style="color: var(--primary); font-size: 1.5rem; margin-bottom: 1rem; display: block;"></i>
           <h3>UI/UX</h3>
           <p style="color: var(--text-muted); font-size: 0.9rem;">User-centered wireframing.</p>
         </div>
@@ -243,7 +430,8 @@
         <ul>
           <li>Developed a guided responsive React web dashboard for personal expense tracking</li>
           <li>Utilized modals for CRUD operations, ensured a mobile-friendly layout.</li>
-          <li>Deployed live via <a href="https://bkum-05.github.io/M4-Dashboard/" style="color: var(--primary); font-weight: 600;" target="_blank">GitHub Pages</a>.</li>
+          <li>Deployed live via <a href="https://bkum-05.github.io/M4-Dashboard/"
+              style="color: var(--primary); font-weight: 600;" target="_blank">GitHub Pages</a>.</li>
         </ul>
         <a href="https://github.com/BKum-05/M4-Dashboard" target="_blank" class="gh-link">
           <i class="fa-brands fa-github"></i> View on GitHub
@@ -276,4 +464,5 @@
     });
   </script>
 </body>
+
 </html>
