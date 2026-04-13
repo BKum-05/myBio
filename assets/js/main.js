@@ -9,8 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (footerContainer) {
         footerContainer.innerHTML = html;
-
-        // Set the year after content is injected
         const yearSpan = document.getElementById('current-year');
         if (yearSpan) {
           yearSpan.textContent = new Date().getFullYear();
@@ -28,42 +26,29 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileLinks = document.querySelectorAll('#mobile-menu a');
 
   if (hamburger && mobileMenu) {
-
-    // Function to open/close menu
     const toggleMenu = (forceState) => {
       const isOpening = typeof forceState === 'boolean' ? forceState : !mobileMenu.classList.contains('open');
-
       mobileMenu.classList.toggle('open', isOpening);
-
-      // UI Updates
       hamburger.textContent = isOpening ? '✕' : '☰';
       hamburger.setAttribute('aria-expanded', isOpening);
-
-      // Prevent background scrolling
       document.body.style.overflow = isOpening ? 'hidden' : 'auto';
     };
 
-    // Hamburger Click Event
     hamburger.addEventListener('click', (e) => {
-      e.stopPropagation(); // Prevents immediate close if clicking button
+      e.stopPropagation();
       toggleMenu();
     });
 
-    // Close menu when clicking any mobile link (prevents staying open on navigation)
     mobileLinks.forEach(link => {
       link.addEventListener('click', () => toggleMenu(false));
     });
 
-    // Close menu when clicking anywhere outside the menu links (on the overlay)
     document.addEventListener('click', (e) => {
-      if (mobileMenu.classList.contains('open') &&
-        !mobileMenu.contains(e.target) &&
-        !hamburger.contains(e.target)) {
+      if (mobileMenu.classList.contains('open') && !mobileMenu.contains(e.target) && !hamburger.contains(e.target)) {
         toggleMenu(false);
       }
     });
 
-    // Close menu if window is resized above mobile breakpoint (cleanup)
     window.addEventListener('resize', () => {
       if (window.innerWidth > 850 && mobileMenu.classList.contains('open')) {
         toggleMenu(false);
@@ -71,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 3. SCROLL PROGRESS BAR 
+  // 3. SCROLL PROGRESS BAR
   const progressBar = document.getElementById('progress-bar');
   if (progressBar) {
     window.addEventListener('scroll', () => {
@@ -83,13 +68,56 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 4. ACTIVE NAV LINK 
   const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-  // Updated selector to match your cleaned-up HTML class ".nav-links"
   document.querySelectorAll('.nav-links a, .mobile-menu a').forEach(link => {
     const href = link.getAttribute('href');
-    if (href === currentPage ||
-      (currentPage === '' && href === 'index.html') ||
-      (currentPage === 'index.html' && href === 'index.html')) {
+    if (href === currentPage || (currentPage === '' && href === 'index.html')) {
       link.classList.add('active');
     }
   });
+
+  // 5. INTERSECTION OBSERVER
+  const revealOptions = {
+    threshold: 0.15,
+    rootMargin: "0px 0px -50px 0px"
+  };
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, revealOptions);
+
+  const revealTargets = document.querySelectorAll('.timeline-item, .card, .project-card, .cert-card');
+  revealTargets.forEach(target => {
+    target.classList.add('reveal-init');
+    revealObserver.observe(target);
+  });
+
+  // 6. TIMELINE FILLER
+  const timeline = document.querySelector('.timeline-container');
+  const filler = document.querySelector('.timeline-filler');
+  
+  if (timeline && filler) {
+    const handleTimelineScroll = () => {
+      const rect = timeline.getBoundingClientRect();
+      const viewHeight = window.innerHeight;
+      let progress = (viewHeight - rect.top) / (rect.height + viewHeight / 3) * 100;
+      filler.style.height = `${Math.min(Math.max(progress, 0), 100)}%`;
+    };
+
+    const timelineObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          window.addEventListener('scroll', handleTimelineScroll);
+        } else {
+          window.removeEventListener('scroll', handleTimelineScroll);
+        }
+      });
+    }, { threshold: 0 });
+
+    timelineObserver.observe(timeline);
+  }
 });
