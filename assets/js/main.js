@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  // 1. MODULAR FOOTER LOADING
+  /* ==========================================================================
+     1. MODULAR FOOTER LOADING
+     ========================================================================== */
   async function initFooter() {
     try {
       const response = await fetch('footer.html');
@@ -18,9 +20,25 @@ document.addEventListener('DOMContentLoaded', () => {
       console.error("Footer error:", error);
     }
   }
+
   initFooter();
 
-  // 2. HAMBURGER LOGIC
+  /* ==========================================================================
+     2. NAVIGATION: ACTIVE LINK LOGIC
+     ========================================================================== */
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  const navLinks = document.querySelectorAll('.nav-links a, .mobile-menu a');
+
+  navLinks.forEach(link => {
+    const href = link.getAttribute('href');
+    if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+      link.classList.add('active');
+    }
+  });
+
+  /* ==========================================================================
+     3. NAVIGATION: MOBILE HAMBURGER LOGIC
+     ========================================================================== */
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobile-menu');
   const mobileLinks = document.querySelectorAll('#mobile-menu a');
@@ -34,6 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.style.overflow = isOpening ? 'hidden' : 'auto';
     };
 
+    // Event Listeners
     hamburger.addEventListener('click', (e) => {
       e.stopPropagation();
       toggleMenu();
@@ -56,8 +75,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 3. SCROLL PROGRESS BAR
+  /* ==========================================================================
+     4. SCROLL PROGRESS BAR
+     ========================================================================== */
   const progressBar = document.getElementById('progress-bar');
+
   if (progressBar) {
     window.addEventListener('scroll', () => {
       const scrollTop = window.scrollY;
@@ -66,16 +88,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 4. ACTIVE NAV LINK 
-  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav-links a, .mobile-menu a').forEach(link => {
-    const href = link.getAttribute('href');
-    if (href === currentPage || (currentPage === '' && href === 'index.html')) {
-      link.classList.add('active');
-    }
-  });
-
-  // 5. INTERSECTION OBSERVER
+  /* ==========================================================================
+     5. REVEAL ANIMATIONS (INTERSECTION OBSERVER)
+     ========================================================================== */
   const revealOptions = {
     threshold: 0.15,
     rootMargin: "0px 0px -50px 0px"
@@ -91,15 +106,18 @@ document.addEventListener('DOMContentLoaded', () => {
   }, revealOptions);
 
   const revealTargets = document.querySelectorAll('.timeline-item, .card, .project-card, .cert-card');
+
   revealTargets.forEach(target => {
     target.classList.add('reveal-init');
     revealObserver.observe(target);
   });
 
-  // 6. TIMELINE FILLER
+  /* ==========================================================================
+     6. TIMELINE FILLER LOGIC
+     ========================================================================== */
   const timeline = document.querySelector('.timeline-container');
   const filler = document.querySelector('.timeline-filler');
-  
+
   if (timeline && filler) {
     const handleTimelineScroll = () => {
       const rect = timeline.getBoundingClientRect();
