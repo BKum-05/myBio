@@ -25,21 +25,48 @@ document.addEventListener('DOMContentLoaded', () => {
   // 2. HAMBURGER LOGIC
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobile-menu');
+  const mobileLinks = document.querySelectorAll('#mobile-menu a');
 
   if (hamburger && mobileMenu) {
-    hamburger.addEventListener('click', () => {
-      mobileMenu.classList.toggle('open');
-      hamburger.textContent = mobileMenu.classList.contains('open') ? '✕' : '☰';
-      // Added: prevent body scroll when menu is open
-      document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : 'auto';
+
+    // Function to open/close menu
+    const toggleMenu = (forceState) => {
+      const isOpening = typeof forceState === 'boolean' ? forceState : !mobileMenu.classList.contains('open');
+
+      mobileMenu.classList.toggle('open', isOpening);
+
+      // UI Updates
+      hamburger.textContent = isOpening ? '✕' : '☰';
+      hamburger.setAttribute('aria-expanded', isOpening);
+
+      // Prevent background scrolling
+      document.body.style.overflow = isOpening ? 'hidden' : 'auto';
+    };
+
+    // Hamburger Click Event
+    hamburger.addEventListener('click', (e) => {
+      e.stopPropagation(); // Prevents immediate close if clicking button
+      toggleMenu();
     });
 
-    // Click outside to close 
+    // Close menu when clicking any mobile link (prevents staying open on navigation)
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => toggleMenu(false));
+    });
+
+    // Close menu when clicking anywhere outside the menu links (on the overlay)
     document.addEventListener('click', (e) => {
-      if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
-        mobileMenu.classList.remove('open');
-        hamburger.textContent = '☰';
-        document.body.style.overflow = 'auto';
+      if (mobileMenu.classList.contains('open') &&
+        !mobileMenu.contains(e.target) &&
+        !hamburger.contains(e.target)) {
+        toggleMenu(false);
+      }
+    });
+
+    // Close menu if window is resized above mobile breakpoint (cleanup)
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 850 && mobileMenu.classList.contains('open')) {
+        toggleMenu(false);
       }
     });
   }
@@ -54,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 4. ACTIVE NAV LINK
+  // 4. ACTIVE NAV LINK 
   const currentPage = window.location.pathname.split('/').pop() || 'index.html';
   // Updated selector to match your cleaned-up HTML class ".nav-links"
   document.querySelectorAll('.nav-links a, .mobile-menu a').forEach(link => {
