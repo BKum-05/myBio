@@ -4,345 +4,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bryan Kum | Portfolio</title>
+
+  <!-- Primary Meta Tags -->
+  <title>Bryan Kum | Software Development & UX Portfolio</title>
+  <meta name="title" content="Bryan Kum | Software Development & UX Portfolio">
+  <meta name="description"
+    content="Portfolio of Bryan Kum, a multi-disciplinary IT student, focusing on secure, user-centric digital experiences, web development, and cybersecurity.">
+  <meta name="keywords"
+    content="Bryan Kum, Portfolio, Software Development, UX Design, Cybersecurity, TAR UMT, Penang, Web Development, React">
+  <meta name="author" content="Bryan Kum">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bkum-05.github.io/">
+  <meta property="og:title" content="Bryan Kum | Software Development & UX Portfolio">
+  <meta property="og:description" content="Explore my projects in AI Attendance Systems, React Dashboards, and more.">
+  <meta property="og:image" content="https://avatars.githubusercontent.com/u/177133275?v=4">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://bkum-05.github.io/">
+  <meta property="twitter:title" content="Bryan Kum | Software Development & UX Portfolio">
+  <meta property="twitter:description"
+    content="Explore my projects in AI Attendance Systems, React Dashboards, and more.">
+  <meta property="twitter:image" content="https://avatars.githubusercontent.com/u/177133275?v=4">
+
+  <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="https://avatars.githubusercontent.com/u/177133275?v=4&size=64">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
 
-  <style>
-    :root { 
-      --primary: #818cf8;
-      --accent: #a855f7;
-      --bg-dark: #0f172a;
-      --card-bg: rgba(30, 41, 59, 0.5);
-      --border: rgba(255, 255, 255, 0.08);
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      background-color: var(--bg-dark);
-      background-image:
-        radial-gradient(circle at 0% 0%, rgba(129, 140, 248, 0.08) 0%, transparent 40%),
-        radial-gradient(circle at 100% 100%, rgba(168, 85, 247, 0.08) 0%, transparent 40%);
-      color: var(--text-main);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    /* Navigation */
-    #progress-bar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 4px;
-      background: var(--primary);
-      z-index: 9999;
-      width: 0%;
-      box-shadow: 0 0 10px var(--primary);
-    }
-
-    .navbar {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      padding: 1.2rem;
-      background: rgba(15, 23, 42, 0.8);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav-wrapper {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2.5rem;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .navbar a {
-      text-decoration: none;
-      font-weight: 600;
-      color: var(--text-muted);
-      font-size: 0.85rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      transition: color 0.3s ease;
-    }
-
-    .navbar a:hover,
-    .navbar a.active {
-      color: var(--primary);
-      text-shadow: 0 0 8px var(--primary);
-    }
-
-    .nav-icon-btn {
-      background: none;
-      border: 1px solid var(--border);
-      color: var(--text-main);
-      font-size: 1.5rem;
-      cursor: pointer;
-      padding: 5px 12px;
-      border-radius: 8px;
-      display: none;
-    }
-
-    /* Mobile Menu Fixed */
-    .mobile-menu {
-      position: fixed;
-      top: 0;
-      right: -100%;
-      width: 70%;
-      height: 100vh;
-      background: rgba(15, 23, 42, 0.98);
-      backdrop-filter: blur(20px);
-      /* CHANGED: Use flex only when open, otherwise hide it from the layout */
-      display: none;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 2rem;
-      z-index: 1001;
-      transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      border-left: 1px solid var(--border);
-      visibility: hidden;
-      pointer-events: none;
-    }
-
-    .mobile-menu.open {
-      display: flex;
-      /* Switch back to flex when active */
-      right: 0;
-      visibility: visible;
-      pointer-events: auto;
-    }
-
-    .mobile-menu a {
-      text-decoration: none;
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--text-muted);
-      text-transform: uppercase;
-    }
-
-    /* Hero */
-    .hero-inner {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      align-items: center;
-      gap: 3rem;
-      background: var(--card-bg);
-      padding: 3.5rem;
-      border-radius: 40px;
-      border: 1px solid var(--border);
-      margin-top: 4rem;
-      backdrop-filter: blur(10px);
-    }
-
-    .name-gradient {
-      background: linear-gradient(to right, var(--primary), var(--accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-size: clamp(2.5rem, 5vw, 3.5rem);
-      font-weight: 800;
-    }
-
-    .badge {
-      padding: 6px 14px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border);
-      color: var(--primary);
-      border-radius: 100px;
-      font-size: 0.7rem;
-      font-weight: 700;
-      text-transform: uppercase;
-    }
-
-    .cta-button {
-      background: var(--primary);
-      color: white;
-      padding: 14px 28px;
-      border-radius: 14px;
-      font-weight: 700;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      box-shadow: 0 10px 20px rgba(129, 140, 248, 0.2);
-      transition: transform 0.3s ease;
-    }
-
-    .hero-avatar {
-      width: 240px;
-      height: 240px;
-      border-radius: 50%;
-      border: 4px solid var(--border);
-      object-fit: cover;
-    }
-
-    /* Timeline */
-    .timeline-container {
-      position: relative;
-      max-width: 1000px;
-      margin: 4rem auto;
-      padding: 2rem 0;
-    }
-
-    .timeline-line {
-      position: absolute;
-      left: 50%;
-      width: 2px;
-      height: 100%;
-      background: var(--border);
-      transform: translateX(-50%);
-    }
-
-    .timeline-filler {
-      background: var(--primary);
-      width: 100%;
-      height: 0;
-      transition: height 0.1s linear;
-    }
-
-    .timeline-item {
-      width: 50%;
-      padding: 0 30px;
-      position: relative;
-      opacity: 0;
-      transform: translateY(30px);
-      margin-bottom: 2rem;
-      transition: all 0.6s ease;
-    }
-
-    .timeline-item.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .timeline-item:nth-child(odd) {
-      text-align: right;
-      margin-right: 50%;
-    }
-
-    .timeline-item:nth-child(even) {
-      text-align: left;
-      margin-left: 50%;
-    }
-
-    .timeline-content {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      padding: 1.5rem;
-      border-radius: 24px;
-    }
-
-    /* Expertise */
-    .bento-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin: 3rem 0;
-    }
-
-    .card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      padding: 2rem;
-      border-radius: 24px;
-      transition: border-color 0.3s ease;
-    }
-
-    .card:hover {
-      border-color: var(--primary);
-    }
-
-    .project-card {
-      background: #1e293b;
-      border: 1px solid var(--border);
-      padding: 3.5rem;
-      border-radius: 32px;
-      margin-bottom: 4rem;
-    }
-
-    .gh-link {
-      background: var(--primary);
-      color: white;
-      padding: 12px 24px;
-      border-radius: 12px;
-      text-decoration: none;
-      display: inline-block;
-      margin-top: 1.5rem;
-      font-weight: 600;
-    }
-
-    #main-footer {
-      margin-top: 5rem;
-      padding: 4rem 2rem;
-      border-top: 1px solid var(--border);
-      background: rgba(15, 23, 42, 0.3);
-      text-align: center;
-    }
-
-    @media (max-width: 800px) {
-      .hero-inner {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-
-      .timeline-line {
-        left: 20px;
-      }
-
-      .timeline-item {
-        width: 100% !important;
-        margin: 0 0 2rem 0 !important;
-        padding-left: 50px !important;
-        text-align: left !important;
-      }
-
-      .nav-links {
-        display: none;
-      }
-
-      .nav-icon-btn {
-        display: block;
-      }
-
-      .nav-wrapper {
-        justify-content: space-between;
-      }
-    }
-  </style>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
   <div id="progress-bar"></div>
 
-  <nav class="navbar">
+  <nav class="navbar" id="top-nav">
     <div class="container nav-wrapper">
       <ul class="nav-links">
         <li><a href="index.html">About</a></li>
         <li><a href="certifications.html">Certifications</a></li>
       </ul>
-      <button id="hamburger" class="nav-icon-btn">☰</button>
+      <button id="hamburger" class="nav-icon-btn" aria-label="Toggle Menu">☰</button>
     </div>
     <div id="mobile-menu" class="mobile-menu">
       <a href="index.html">About</a>
@@ -351,92 +61,121 @@
   </nav>
 
   <main class="container">
-    <section class="hero">
-      <div class="hero-inner">
+    <!-- Hero Section -->
+    <header class="hero" id="about">
+      <div class="hero-inner animate-in">
         <div class="hero-text">
-          <h1>Hi, I'm <span class="name-gradient">Bryan Kum</span></h1>
-          <p>A multi-disciplinary IT student at <strong>TAR UMT Penang</strong> focused on building secure, user-centric
-            digital experiences.</p>
-          <div style="display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.5rem 0;">
-            <span class="badge">Web Development</span><span class="badge">UX Design</span>
-            <span class="badge">Cybersecurity</span><span class="badge">React</span>
+          <h1><span class="name-gradient">Bryan Kum</span></h1>
+          <p>A multi-disciplinary <strong>IT Student</strong> at <strong>TAR UMT Penang</strong>, focusing in secure,
+            user-centric software systems.</p>
+
+          <div class="badge-group">
+            <span class="badge">Software Systems Development</span>
+            <span class="badge">UX Design</span>
+            <span class="badge">Cybersecurity</span>
+            <span class="badge">React</span>
           </div>
+
           <a href="assets/Resume - Bryan Kum Zhan Kin.pdf" class="cta-button" target="_blank">
             <i class="fa-solid fa-file-pdf"></i> Download Resume
           </a>
         </div>
-        <div style="text-align: center;">
-          <img src="assets/bryankum05.jpg" alt="Bryan" class="hero-avatar">
-          <p style="font-weight: 600; color: var(--text-muted); margin-top: 1rem;">
+
+        <div class="hero-avatar-wrapper">
+          <img src="assets/bryankum05.jpg" alt="Bryan Kum Headshot" class="hero-avatar">
+          <p class="location-tag">
             <i class="fa-solid fa-location-dot" style="color: #ef4444;"></i> Penang, Malaysia
           </p>
         </div>
       </div>
-    </section>
+    </header>
 
-    <section>
-      <h2 style="font-size: 2.2rem; font-weight: 800; margin-top: 4rem;">Education</h2>
+    <!-- Education Section -->
+    <section id="education">
+      <h2>Education</h2>
       <div class="timeline-container">
         <div class="timeline-line">
           <div class="timeline-filler"></div>
         </div>
-        <div class="timeline-item">
+
+        <article class="timeline-item">
           <div class="timeline-content">
-            <span style="color: var(--primary); font-weight: 800;">2026 — Present</span>
+            <span class="timeline-date">2026 — Present</span>
             <h3>Bachelor in IT (Honours)<br>(Software Systems Development)</h3>
             <p>TAR UMT Penang Branch</p>
           </div>
-        </div>
-        <div class="timeline-item">
+        </article>
+
+        <article class="timeline-item">
           <div class="timeline-content">
-            <span style="color: var(--primary); font-weight: 800;">2023 — 2025</span>
+            <span class="timeline-date">2023 — 2025</span>
             <h3>Diploma in Computer Science</h3>
             <p>TAR UMT Penang Branch</p>
-            <small>CGPA: 3.0762. Graduated with Merit.</small>
+            <p style="font-size: 0.9rem; margin-top: 0.5rem; opacity: 0.8;">CGPA: 3.0762 | Graduated with Merit</p>
           </div>
-        </div>
+        </article>
       </div>
     </section>
 
-    <section>
-      <h2 style="font-size: 2.2rem; font-weight: 800;">Skills</h2>
+    <!-- Interests Section -->
+    <section id="interests">
+      <h2>Interests & Focus</h2>
       <div class="bento-grid">
         <div class="card">
-          <i class="fa-solid fa-code"
-            style="color: var(--primary); font-size: 1.5rem; margin-bottom: 1rem; display: block;"></i>
+          <i class="fa-solid fa-code card-icon"></i>
           <h3>Web Development</h3>
-          <p style="color: var(--text-muted); font-size: 0.9rem;">Modern frontend architecture.</p>
+          <p>Combining modern frontend architecture with scalable backend solutions to build seamless web experiences.
+          </p>
         </div>
+
         <div class="card">
-          <i class="fa-solid fa-shield-halved"
-            style="color: var(--primary); font-size: 1.5rem; margin-bottom: 1rem; display: block;"></i>
+          <i class="fa-solid fa-shield-halved card-icon"></i>
           <h3>Security</h3>
-          <p style="color: var(--text-muted); font-size: 0.9rem;">Defensive security mindset.</p>
+          <p>Adopting a defensive security mindset in development to ensure software is robust against modern threats.
+          </p>
         </div>
+
         <div class="card">
-          <i class="fa-solid fa-pen-nib"
-            style="color: var(--primary); font-size: 1.5rem; margin-bottom: 1rem; display: block;"></i>
-          <h3>UI/UX</h3>
-          <p style="color: var(--text-muted); font-size: 0.9rem;">User-centered wireframing.</p>
+          <i class="fa-solid fa-pen-nib card-icon"></i>
+          <h3>UI/UX Design</h3>
+          <p>Focusing on user-centered design principles and wireframing to create intuitive, accessible interfaces.</p>
         </div>
       </div>
     </section>
 
-    <section>
-      <h2 style="font-size: 2.2rem; font-weight: 800;">Featured Project</h2>
-      <div class="project-card">
-        <h3>Expense Tracker Dashboard</h3>
-        <p>A financial management tool built for clarity and speed.</p>
+    <!-- Projects Section -->
+    <section id="projects">
+      <h2>Featured Projects</h2>
+
+      <article class="project-card">
+        <h3>AI Attendance System with Geo-Fencing</h3>
+        <p>A university attendance solution designed to eliminate loopholes through physical validation.</p>
         <ul>
-          <li>Developed a guided responsive React web dashboard for personal expense tracking</li>
-          <li>Utilized modals for CRUD operations, ensured a mobile-friendly layout.</li>
-          <li>Deployed live via <a href="https://bkum-05.github.io/M4-Dashboard/"
-              style="color: var(--primary); font-weight: 600;" target="_blank">GitHub Pages</a>.</li>
+          <li>Prevents attendance fraud using <strong>GPS geo-fencing</strong> and dynamic <strong>QR code</strong>
+            validation.</li>
+          <li>Ensures students are within a 300m radius of the classroom during check-in.</li>
+          <li>Developing a <strong>Flutter</strong> mobile application to leverage native camera and location
+            performance.</li>
         </ul>
-        <a href="https://github.com/BKum-05/M4-Dashboard" target="_blank" class="gh-link">
-          <i class="fa-brands fa-github"></i> View on GitHub
-        </a>
-      </div>
+      </article>
+
+      <article class="project-card">
+        <h3>Expense Tracker Dashboard</h3>
+        <p>A high-performance financial management tool built for clarity and mobile accessibility.</p>
+        <ul>
+          <li>Guided responsive <strong>React</strong> dashboard with real-time expense calculations.</li>
+          <li>Seamless CRUD operations via interactive modals and optimized state management.</li>
+          <li>Deployed live on GitHub Pages for public demonstration.</li>
+        </ul>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <a href="https://bkum-05.github.io/M4-Dashboard/" target="_blank" class="gh-link">
+            <i class="fa-solid fa-up-right-from-square"></i> Live Demo
+          </a>
+          <a href="https://github.com/BKum-05/M4-Dashboard" target="_blank" class="gh-link">
+            <i class="fa-brands fa-github"></i> View Source
+          </a>
+        </div>
+      </article>
     </section>
   </main>
 
@@ -444,20 +183,28 @@
 
   <script src="assets/js/main.js"></script>
   <script>
+    // Intersection Observer for Timeline Items
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('show');
-        else entry.target.classList.remove('show');
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
       });
-    }, { threshold: 0.2 });
+    }, {
+      threshold: 0.2,
+      rootMargin: "0px 0px -50px 0px"
+    });
+
     document.querySelectorAll('.timeline-item').forEach(item => observer.observe(item));
 
+    // Timeline Filler Progress
     window.addEventListener('scroll', () => {
       const timeline = document.querySelector('.timeline-container');
       const filler = document.querySelector('.timeline-filler');
       if (timeline && filler) {
         const rect = timeline.getBoundingClientRect();
         const viewHeight = window.innerHeight;
+        // Calculate progress based on how much of the timeline is in view
         let progress = (viewHeight - rect.top) / (rect.height + viewHeight / 2) * 100;
         filler.style.height = `${Math.min(Math.max(progress, 0), 100)}%`;
       }
