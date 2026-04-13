@@ -1,8 +1,13 @@
 <div class="social-sidebar">
-    <a href="https://github.com/BKum-05" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
-    <a href="https://www.linkedin.com/in/bryan-kum-11b184330" target="_blank" title="LinkedIn"><i
-            class="fa-brands fa-linkedin"></i></a>
-    <a href="mailto:bryankzk-pm23@student.tarc.edu.my" title="Email"><i class="fa-solid fa-envelope"></i></a>
+    <a href="https://github.com/BKum-05" target="_blank" title="GitHub">
+        <i class="fa-brands fa-github"></i>
+    </a>
+    <a href="https://www.linkedin.com/in/bryan-kum-11b184330" target="_blank" title="LinkedIn">
+        <i class="fa-brands fa-linkedin"></i>
+    </a>
+    <a href="mailto:bryankzk-pm23@student.tarc.edu.my" title="Email">
+        <i class="fa-solid fa-envelope"></i>
+    </a>
 </div>
 
 <div class="footer-socials">
@@ -10,6 +15,7 @@
     <a href="https://www.linkedin.com/in/bryan-kum-11b184330" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
     <a href="mailto:bryankzk-pm23@student.tarc.edu.my"><i class="fa-solid fa-envelope"></i></a>
 </div>
+
 <p>© 2023 – <span id="current-year"></span> Bryan Kum — Built with Passion from Malaysia</p>
 
 <style>
@@ -38,6 +44,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        transition: var(--transition);
     }
 
     .social-sidebar a:hover {
@@ -45,7 +52,7 @@
         transform: scale(1.2);
     }
 
-    /* FOOTER SOCIALS */
+    /* FOOTER SOCIAL LINKS */
     .footer-socials {
         display: flex;
         justify-content: center;
@@ -57,13 +64,14 @@
         color: var(--text-muted);
         font-size: 1.5rem;
         text-decoration: none;
+        transition: var(--transition);
     }
 
     .footer-socials a:hover {
         color: var(--primary);
     }
 
-    /* HIDE SIDEBAR ON MOBILE */
+    /* RESPONSIVE HIDING */
     @media (max-width: 1024px) {
         .social-sidebar {
             display: none;
