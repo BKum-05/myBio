@@ -70,15 +70,27 @@
             user-centric software systems.</p>
 
           <div class="badge-group">
-            <span class="badge">Software Systems Development</span>
+            <!-- <span class="badge">Software Systems Development</span> -->
             <span class="badge">UX Design</span>
             <span class="badge">Cybersecurity</span>
             <span class="badge">React</span>
+            <span class="badge">Python</span>
           </div>
 
-          <a href="assets/Resume - Bryan Kum Zhan Kin.pdf" class="cta-button" target="_blank">
-            <i class="fa-solid fa-file-pdf"></i> Download Resume
-          </a>
+          <div class="resume-card">
+            <div class="resume-left">
+              <div class="resume-icon">
+                <i class="fa-solid fa-file-pdf"></i>
+              </div>
+              <div class="resume-meta">
+                <span class="file-name">Resume - Bryan Kum Zhan Kin.pdf</span>
+                <span class="file-info">Full Resume • <span id="dynamic-date"></span></span>
+              </div>
+            </div>
+            <a href="assets/Resume - Bryan Kum Zhan Kin.pdf" class="cta-button mini-btn" target="_blank">
+              <i class="fa-solid fa-download"></i> Download
+            </a>
+          </div>
         </div>
 
         <div class="hero-avatar-wrapper">
@@ -183,6 +195,19 @@
 
   <script src="assets/js/main.js"></script>
   <script>
+    (function () {
+      const dateElement = document.getElementById('dynamic-date');
+      const now = new Date();
+
+      // Formats to "Month YYYY"
+      const formattedDate = now.toLocaleString('en-US', {
+        month: 'long',
+        year: 'numeric'
+      });
+
+      dateElement.textContent = `Updated ${formattedDate}`;
+    })();
+
     // Intersection Observer for Timeline Items
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
