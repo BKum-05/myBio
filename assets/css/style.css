@@ -774,3 +774,37 @@ section h2::after {
         font-size: 1.75rem;
     }
 }
+
+
+/* Reveal Animation Base */
+.reveal-init {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: transform, opacity;
+}
+
+/* Specific delay for Education items to feel sequential */
+.timeline-item.reveal-init {
+    transition-duration: 1s;
+}
+
+/* Revealed State */
+.reveal-init.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.bento-grid .card:nth-child(2),
+.certs-grid .cert-card:nth-child(2) {
+    transition-delay: 0.1s;
+}
+
+.bento-grid .card:nth-child(3),
+.certs-grid .cert-card:nth-child(3) {
+    transition-delay: 0.2s;
+}
+
+.timeline-item {
+    opacity: 0;
+}
