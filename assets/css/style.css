@@ -705,6 +705,7 @@ section h2::after {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -769,10 +770,20 @@ section h2::after {
         display: block;
     }
 
-    .hero-inner {
-        grid-template-columns: 1fr;
+.hero-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         text-align: center;
         padding: 4rem 2rem;
+        gap: 3rem;
+    }
+
+    .hero-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
     }
 
     .hero-text p {
@@ -784,10 +795,11 @@ section h2::after {
     }
 
     .hero-avatar {
-        width: 220px;
-        height: 220px;
+        width: 240px;
+        height: 240px;
     }
 
+    /* Timeline Adjustments */
     .timeline-line {
         left: 20px;
     }
@@ -807,7 +819,8 @@ section h2::after {
 @media (max-width: 600px) {
     .resume-card {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
+        text-align: center;
         gap: 20px;
         padding: 20px;
     }
@@ -817,6 +830,7 @@ section h2::after {
     }
 
     .resume-meta {
+        white-space: nowrap;
         word-break: break-all;
     }
 
