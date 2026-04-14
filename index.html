@@ -5,42 +5,102 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Primary Meta Tags -->
   <title>Bryan Kum | Software Development & UX Portfolio</title>
-  <meta name="title" content="Bryan Kum | Software Development & UX Portfolio">
   <meta name="description"
-    content="Portfolio of Bryan Kum, a multi-disciplinary IT student, focusing on secure, user-centric digital experiences, web development, and cybersecurity.">
-  <meta name="keywords"
-    content="Bryan Kum, Portfolio, Software Development, UX Design, Cybersecurity, TAR UMT, Penang, Web Development, React">
+    content="Portfolio of Bryan Kum, a multi-disciplinary IT student, focusing on secure, user-centric digital experiences.">
+  <meta name="keywords" content="Bryan Kum, Portfolio, Software Development, UX Design, Cybersecurity, TAR UMT, Penang">
   <meta name="author" content="Bryan Kum">
 
-  <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://bkum-05.github.io/">
   <meta property="og:title" content="Bryan Kum | Software Development & UX Portfolio">
   <meta property="og:description" content="Explore my projects in AI Attendance Systems, React Dashboards, and more.">
   <meta property="og:image" content="https://avatars.githubusercontent.com/u/177133275?v=4">
 
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://bkum-05.github.io/">
-  <meta property="twitter:title" content="Bryan Kum | Software Development & UX Portfolio">
-  <meta property="twitter:description"
-    content="Explore my projects in AI Attendance Systems, React Dashboards, and more.">
-  <meta property="twitter:image" content="https://avatars.githubusercontent.com/u/177133275?v=4">
-
-  <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="https://avatars.githubusercontent.com/u/177133275?v=4&size=64">
-
-  <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
 
-  <!-- Custom CSS -->
   <link rel="stylesheet" href="assets/css/style.css">
+
+  <style>
+    /* --- 1. HERO ANNOTATIONS --- */
+    .hero-title-container {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+
+    .name-annotation {
+      position: absolute;
+      top: -50px;
+      right: -140px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      transform: rotate(-2deg);
+      pointer-events: none;
+      z-index: 5;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .annotation-text {
+      font-family: 'Caveat', cursive;
+      font-size: 1.4rem;
+      color: var(--primary);
+      font-weight: 700;
+      margin-left: 20px;
+    }
+
+    .annotation-arrow {
+      margin-top: -5px;
+      margin-left: 10px;
+      filter: drop-shadow(0 0 2px rgba(129, 140, 248, 0.4));
+    }
+
+    /* --- 2. ANIMATIONS --- */
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: rotate(4deg) translateY(0);
+      }
+
+      50% {
+        transform: rotate(5deg) translateY(-3px);
+      }
+    }
+
+    /* --- 3. RESPONSIVE QUERIES --- */
+    @media (max-width: 850px) {
+      .hero-title-container {
+        display: block;
+        margin: 0 auto 1.5rem;
+        width: fit-content;
+      }
+
+      .name-annotation {
+        top: -60px;
+        right: -100px;
+        transform: scale(0.85) rotate(2deg);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .name-annotation {
+        right: -40px;
+        top: -55px;
+      }
+
+      .annotation-text {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -61,21 +121,25 @@
   </nav>
 
   <main class="container">
-    <!-- Hero Section -->
     <header class="hero" id="about">
       <div class="hero-inner animate-in">
         <div class="hero-text">
-          <h1><span class="name-gradient">Bryan Kum</span></h1>
+          <h1 class="hero-title-container">
+            <span class="name-gradient">Bryan Kum</span>
+            <div class="name-annotation">
+              <span class="annotation-text">Looking for internships!</span>
+              <svg class="annotation-arrow" width="80" height="50" viewBox="0 0 80 50" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 40C20 30 40 10 70 8" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round"
+                  stroke-dasharray="2 1" />
+                <path d="M60 2L72 9L64 18" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </div>
+          </h1>
+
           <p>A multi-disciplinary <strong>IT Student</strong> at <strong>TAR UMT Penang</strong>, focusing in secure,
             user-centric software systems.</p>
-
-          <div class="badge-group">
-            <!-- <span class="badge">Software Systems Development</span> -->
-            <span class="badge">UX Design</span>
-            <span class="badge">Cybersecurity</span>
-            <span class="badge">React</span>
-            <span class="badge">Python</span>
-          </div>
 
           <div class="resume-card">
             <div class="resume-left">
@@ -102,14 +166,12 @@
       </div>
     </header>
 
-    <!-- Education Section -->
     <section id="education">
       <h2>Education</h2>
       <div class="timeline-container">
         <div class="timeline-line">
           <div class="timeline-filler"></div>
         </div>
-
         <article class="timeline-item">
           <div class="timeline-content">
             <span class="timeline-date">2026 — Present</span>
@@ -117,7 +179,6 @@
             <p>TAR UMT Penang Branch</p>
           </div>
         </article>
-
         <article class="timeline-item">
           <div class="timeline-content">
             <span class="timeline-date">2023 — 2025</span>
@@ -129,7 +190,6 @@
       </div>
     </section>
 
-    <!-- Interests Section -->
     <section id="interests">
       <h2>Interests & Focus</h2>
       <div class="bento-grid">
@@ -139,14 +199,12 @@
           <p>Combining modern frontend architecture with scalable backend solutions to build seamless web experiences.
           </p>
         </div>
-
         <div class="card">
           <i class="fa-solid fa-shield-halved card-icon"></i>
           <h3>Security</h3>
           <p>Adopting a defensive security mindset in development to ensure software is robust against modern threats.
           </p>
         </div>
-
         <div class="card">
           <i class="fa-solid fa-pen-nib card-icon"></i>
           <h3>UI/UX Design</h3>
@@ -155,10 +213,8 @@
       </div>
     </section>
 
-    <!-- Projects Section -->
     <section id="projects">
       <h2>Featured Projects</h2>
-
       <article class="project-card">
         <h3>AI Attendance System with Geo-Fencing</h3>
         <p>A university attendance solution designed to eliminate loopholes through physical validation.</p>
@@ -179,7 +235,7 @@
           <li>Seamless CRUD operations via interactive modals and optimized state management.</li>
           <li>Deployed live on GitHub Pages for public demonstration.</li>
         </ul>
-        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+        <div class="project-links" style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
           <a href="https://bkum-05.github.io/M4-Dashboard/" target="_blank" class="gh-link">
             <i class="fa-solid fa-up-right-from-square"></i> Live Demo
           </a>
@@ -191,48 +247,58 @@
     </section>
   </main>
 
-  <footer id="main-footer"></footer>
+  <footer id="main-footer">
+    <div class="container">
+      <p id="dynamic-date"></p>
+    </div>
+  </footer>
 
   <script src="assets/js/main.js"></script>
   <script>
-    (function () {
-      const dateElement = document.getElementById('dynamic-date');
-      const now = new Date();
+    document.addEventListener('DOMContentLoaded', () => {
 
-      // Formats to "Month YYYY"
-      const formattedDate = now.toLocaleString('en-US', {
-        month: 'long',
-        year: 'numeric'
-      });
+      // 1. Dynamic Footer Date
+      const updateFooterDate = () => {
+        const footerDate = document.getElementById('dynamic-date');
 
-      dateElement.textContent = `Updated ${formattedDate}`;
-    })();
+        const now = new Date();
+        const formattedDate = now.toLocaleString('en-US', { month: 'long', year: 'numeric' });
 
-    // Intersection Observer for Timeline Items
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
+        if (footerDate) footerDate.textContent = `Updated ${formattedDate}`;
+      };
+
+      // 2. Timeline Progress Logic
+      const handleTimelineProgress = () => {
+        const timeline = document.querySelector('.timeline-container');
+        const filler = document.querySelector('.timeline-filler');
+
+        if (timeline && filler) {
+          const rect = timeline.getBoundingClientRect();
+          const viewHeight = window.innerHeight;
+          // Calculate percentage based on scroll position relative to timeline
+          let progress = (viewHeight - rect.top) / (rect.height + viewHeight / 2) * 100;
+          filler.style.height = `${Math.min(Math.max(progress, 0), 100)}%`;
         }
-      });
-    }, {
-      threshold: 0.2,
-      rootMargin: "0px 0px -50px 0px"
-    });
+      };
 
-    document.querySelectorAll('.timeline-item').forEach(item => observer.observe(item));
+      // 3. Scroll Reveal Observer
+      const revealOnScroll = () => {
+        const observerOptions = { threshold: 0.2, rootMargin: "0px 0px -50px 0px" };
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('show');
+            }
+          });
+        }, observerOptions);
 
-    // Timeline Filler Progress
-    window.addEventListener('scroll', () => {
-      const timeline = document.querySelector('.timeline-container');
-      const filler = document.querySelector('.timeline-filler');
-      if (timeline && filler) {
-        const rect = timeline.getBoundingClientRect();
-        const viewHeight = window.innerHeight;
-        // Calculate progress based on how much of the timeline is in view
-        let progress = (viewHeight - rect.top) / (rect.height + viewHeight / 2) * 100;
-        filler.style.height = `${Math.min(Math.max(progress, 0), 100)}%`;
-      }
+        document.querySelectorAll('.timeline-item').forEach(item => observer.observe(item));
+      };
+
+      // Initialize
+      updateFooterDate();
+      revealOnScroll();
+      window.addEventListener('scroll', handleTimelineProgress);
     });
   </script>
 </body>
