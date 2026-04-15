@@ -564,6 +564,23 @@ section h2::after {
     color: var(--text-muted);
 }
 
+.entry-meta {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+}
+
+.entry-list {
+    margin-top: 1rem;
+    padding-left: 1.2rem;
+}
+
+.entry-list li {
+    color: var(--text-highlight);
+    margin-bottom: 0.7rem;
+    line-height: 1.6;
+}
+
 /* ===== Projects Section ===== */
 .project-card {
     background: linear-gradient(145deg, #1e293b, #0f172a);
@@ -1026,6 +1043,7 @@ section h2::after {
 
 .cert-item {
     list-style: none;
+    display: flex;
 }
 
 .cert-card {
@@ -1041,6 +1059,8 @@ section h2::after {
     color: inherit;
     transition: var(--transition);
     backdrop-filter: blur(10px);
+    width: 100%;
+    height: 100%;
 }
 
 .cert-card:hover {
@@ -1075,6 +1095,7 @@ section h2::after {
     color: var(--text-muted);
     font-family: monospace;
     font-size: 0.9rem;
+    margin-top: auto;
 }
 
 /* ===== Footer ===== */
