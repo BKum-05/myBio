@@ -27,6 +27,7 @@ Cisco: Introduction to Cybersecurity
 Programming: Python Essentials & Software Engineering
 
 📂 Project Highlights
+
 Modular Portfolio: A clean, responsive personal website using externalized CSS/JS and dynamic component loading.
 
 Expense Tracker Dashboard: A React-based financial tool for CRUD operations and mobile-responsive budgeting.
