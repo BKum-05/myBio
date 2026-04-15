@@ -52,7 +52,7 @@
           <h1 class="hero-title-container">
             <span class="name-gradient">Bryan Kum</span>
             <div class="name-annotation">
-              <span class="annotation-text">Looking for internships!</span>
+              <span class="annotation-text">Seeking for internships!</span>
               <svg class="annotation-arrow" width="80" height="50" viewBox="0 0 80 50" fill="none"
                 xmlns="http://www.w3.org/2000/svg" aria-label="Annotation pointing to text">
                 <path d="M10 40C20 30 40 10 70 8" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round"
@@ -140,9 +140,27 @@
 
     <section id="projects">
       <h2>Featured Projects</h2>
-      <article class="project-card">
-        <h3>AI Attendance System with Geo-Fencing</h3>
-        <p>A university attendance solution designed to eliminate loopholes through physical validation.</p>
+      <article class="project-card reveal-init">
+        <div class="project-header">
+          <div>
+            <h3>AI Attendance System with Geo-Fencing</h3>
+            <p>An attendance solution designed to eliminate loopholes through physical validation.</p>
+          </div>
+          <span class="project-status">In Development</span>
+        </div>
+        
+        <div class="tech-stack">
+          <span class="tech-badge tech-flutter">
+            <i class="fa-solid fa-mobile"></i> Flutter
+          </span>
+          <span class="tech-badge tech-gps">
+            <i class="fa-solid fa-location-dot"></i> GPS
+          </span>
+          <span class="tech-badge tech-qr">
+            <i class="fa-solid fa-qrcode"></i> QR Code
+          </span>
+        </div>
+
         <ul>
           <li>Prevents attendance fraud using <strong>GPS geo-fencing</strong> and dynamic <strong>QR code</strong>
             validation.</li>
@@ -152,16 +170,35 @@
         </ul>
       </article>
 
-      <article class="project-card">
-        <h3>Expense Tracker Dashboard</h3>
-        <p>A high-performance financial management tool built for clarity and mobile accessibility.</p>
+      <article class="project-card reveal-init">
+        <div class="project-header">
+          <div>
+            <h3>Expense Tracker Dashboard<br>(IBM Guided Capstone Project)</h3>
+            <p>A high-performance financial management tool built for clarity and mobile accessibility.</p>
+          </div>
+          <span class="project-status completed">Completed</span>
+        </div>
+        
+        <div class="tech-stack">
+          <span class="tech-badge tech-react">
+            <i class="fa-brands fa-react"></i> React
+          </span>
+          <span class="tech-badge tech-js">
+            <i class="fa-brands fa-js"></i> JavaScript
+          </span>
+          <span class="tech-badge tech-responsive">
+            <i class="fa-solid fa-mobile"></i> Responsive
+          </span>
+        </div>
+
         <ul>
-          <li>Guided responsive <strong>React</strong> dashboard with real-time expense calculations.</li>
+          <li>Developed responsive <strong>React</strong> dashboard with real-time expense calculations.</li>
           <li>Seamless CRUD operations via interactive modals and optimized state management.</li>
           <li>Deployed live on GitHub Pages for public demonstration.</li>
         </ul>
-        <div class="project-links" style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
-          <a href="https://bkum-05.github.io/M4-Dashboard/" target="_blank" class="gh-link">
+        
+        <div class="project-links">
+          <a href="https://bkum-05.github.io/M4-Dashboard/" target="_blank" class="gh-link primary">
             <i class="fa-solid fa-up-right-from-square"></i> Live Demo
           </a>
           <a href="https://github.com/BKum-05/M4-Dashboard" target="_blank" class="gh-link">
