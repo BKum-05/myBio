@@ -728,6 +728,39 @@ section h2::after {
     transform: translateY(-2px);
 }
 
+.tech-html {
+    background: rgba(249, 115, 22, 0.15);
+    color: #f97316;
+    border-color: #f97316;
+}
+
+.tech-html:hover {
+    background: rgba(249, 115, 22, 0.25);
+    transform: translateY(-2px);
+}
+
+.tech-css {
+    background: rgba(59, 130, 246, 0.15);
+    color: #3b82f6;
+    border-color: #3b82f6;
+}
+
+.tech-css:hover {
+    background: rgba(59, 130, 246, 0.25);
+    transform: translateY(-2px);
+}
+
+.tech-firebase {
+    background: rgba(245, 158, 11, 0.15);
+    color: #f59e0b;
+    border-color: #f59e0b;
+}
+
+.tech-firebase:hover {
+    background: rgba(245, 158, 11, 0.25);
+    transform: translateY(-2px);
+}
+
 .project-card p {
     font-size: 1.1rem;
     color: var(--text-muted);
