@@ -45,8 +45,10 @@
     </div>
   </nav>
 
-  <main class="container">
-    <header class="hero" id="about">
+  <div id="smooth-wrapper">
+    <div id="smooth-content">
+      <main class="container">
+        <header class="hero" id="about">
       <div class="hero-inner animate-in">
         <div class="hero-text">
           <h1 class="hero-title-container">
@@ -184,7 +186,7 @@
 
     <section id="projects">
       <h2>Featured Projects</h2>
-      <article class="project-card reveal-init">
+      <article class="project-card">
         <div class="project-header">
           <div>
             <h3>Visitor Management System</h3>
@@ -230,7 +232,7 @@
         </div>
       </article>
 
-      <article class="project-card reveal-init">
+      <article class="project-card">
         <div class="project-header">
           <div>
             <h3>AI Attendance System with Geo-Fencing</h3>
@@ -269,7 +271,7 @@
         </ul>
       </article>
 
-      <article class="project-card reveal-init">
+      <article class="project-card">
         <div class="project-header">
           <div>
             <h3>Expense Tracker Dashboard<br>(IBM Guided Capstone Project)</h3>
@@ -309,58 +311,16 @@
         </div>
       </article>
     </section>
-  </main>
+      </main>
 
-  <footer id="main-footer"></footer>
+      <footer id="main-footer"></footer>
+    </div>
+  </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/gsap@latest/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@latest/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@latest/dist/ScrollSmoother.min.js"></script>
   <script src="assets/js/main.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-
-      // 1. Dynamic Footer Date
-      const updateFooterDate = () => {
-        const footerDate = document.getElementById('dynamic-date');
-
-        const now = new Date();
-        const formattedDate = now.toLocaleString('en-US', { month: 'long', year: 'numeric' });
-
-        if (footerDate) footerDate.textContent = `Updated ${formattedDate}`;
-      };
-
-      // 2. Timeline Progress Logic
-      const handleTimelineProgress = () => {
-        const timeline = document.querySelector('.timeline-container');
-        const filler = document.querySelector('.timeline-filler');
-
-        if (timeline && filler) {
-          const rect = timeline.getBoundingClientRect();
-          const viewHeight = window.innerHeight;
-          // Calculate percentage based on scroll position relative to timeline
-          let progress = (viewHeight - rect.top) / (rect.height + viewHeight / 2) * 100;
-          filler.style.height = `${Math.min(Math.max(progress, 0), 100)}%`;
-        }
-      };
-
-      // 3. Scroll Reveal Observer
-      const revealOnScroll = () => {
-        const observerOptions = { threshold: 0.2, rootMargin: "0px 0px -50px 0px" };
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('show');
-            }
-          });
-        }, observerOptions);
-
-        document.querySelectorAll('.timeline-item').forEach(item => observer.observe(item));
-      };
-
-      // Initialize
-      updateFooterDate();
-      revealOnScroll();
-      window.addEventListener('scroll', handleTimelineProgress);
-    });
-  </script>
 </body>
 
 </html>
