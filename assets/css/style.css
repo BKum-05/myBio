@@ -692,6 +692,12 @@ section h2::after {
     transition: var(--transition);
 }
 
+.tech-badge-logo {
+    width: 14px;
+    height: 14px;
+    object-fit: contain;
+}
+
 .tech-flutter {
     background: rgba(10, 184, 255, 0.15);
     color: #0ab8ff;
@@ -1350,6 +1356,19 @@ body.gsap-active .animate-in {
     margin: 0 auto 1.5rem;
 }
 
+.section-intro {
+    color: var(--text-muted);
+    font-size: 1rem;
+    max-width: 100%;
+    margin: 1rem auto 2rem;
+    text-align: center;
+}
+
+#industry-engagement > p,
+#professional-certificates > p {
+    text-align: center;
+}
+
 .cred-link {
   color: var(--primary);
   text-decoration: none;
@@ -1372,6 +1391,63 @@ body.gsap-active .animate-in {
 
 .cred-link-icon {
     font-size: 0.8rem;
+}
+
+.cert-section {
+    margin-top: 2.5rem;
+}
+
+#industry-engagement {
+    margin-top: 1rem;
+}
+
+.certs-grid-engagement {
+    margin-top: 2rem;
+}
+
+.engagement-card {
+    align-items: flex-start;
+    text-align: left;
+}
+
+.engagement-role {
+    margin: 0.55rem 0 0;
+    font-size: 0.92rem;
+    color: var(--text-muted);
+}
+
+.workshop-link-wrap {
+    margin: 0.75rem 0 0;
+}
+
+.workshop-link {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    border: 1px solid var(--card-border);
+    padding: 7px 16px;
+    border-radius: 999px;
+    background: rgba(129, 140, 248, 0.06);
+    transition: var(--transition);
+}
+
+.workshop-link:hover {
+    border-color: var(--primary);
+    background: rgba(129, 140, 248, 0.14);
+    transform: translateY(-1px);
+}
+
+.engagement-focus-tags {
+    margin-top: 1.25rem;
+}
+
+.engagement-points {
+    width: 100%;
+    margin-top: 1rem;
 }
 
 @media (max-width: 850px) {
