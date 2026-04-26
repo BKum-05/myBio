@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileNav();
   initProgressBar();
   initRevealObserver();
+  initAnnotationAnimation();
   initCinematicScroll();
   initEducationTimeline();
 
@@ -19,6 +20,34 @@ document.addEventListener('DOMContentLoaded', () => {
     const now = new Date();
     const formatted = now.toLocaleString('en-US', { month: 'long', year: 'numeric' });
     dateEl.textContent = `Updated ${formatted}`;
+  }
+
+  function initAnnotationAnimation() {
+    const annotationText = document.querySelector('.annotation-text');
+    if (!annotationText || annotationText.dataset.split === 'true') return;
+
+    const originalText = annotationText.textContent.trim();
+    if (!originalText) return;
+
+    annotationText.setAttribute('aria-label', originalText);
+    annotationText.textContent = '';
+
+    [...originalText].forEach((character, index) => {
+      const span = document.createElement('span');
+      span.className = 'annotation-char';
+      span.style.setProperty('--char-index', index);
+
+      if (character === ' ') {
+        span.classList.add('annotation-space');
+        span.innerHTML = '&nbsp;';
+      } else {
+        span.textContent = character;
+      }
+
+      annotationText.appendChild(span);
+    });
+
+    annotationText.dataset.split = 'true';
   }
 
   function getFooterFallbackMarkup() {
