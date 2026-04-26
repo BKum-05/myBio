@@ -693,9 +693,11 @@ section h2::after {
 }
 
 .tech-badge-logo {
-    width: 14px;
-    height: 14px;
+    width: 15px;
+    height: 15px;
     object-fit: contain;
+    flex-shrink: 0;
+    border-radius: 3px;
 }
 
 .tech-flutter {
