@@ -28,10 +28,17 @@
   <meta property="twitter:image" content="https://avatars.githubusercontent.com/u/177133275?v=4">
   <link rel="canonical" href="https://bkum-05.github.io/certifications.html">
 
+  <!-- Mobile & PWA Meta Tags -->
+  <meta name="theme-color" content="#818cf8">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
   <link rel="icon" type="image/x-icon" href="https://avatars.githubusercontent.com/u/177133275?v=4&size=64">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" as="style">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
@@ -46,7 +53,7 @@
     <div class="container nav-wrapper">
       <ul class="nav-links">
         <li><a href="index.html">About</a></li>
-        <li><a href="certifications.html" class="active">Credentials</a></li>
+        <li><a href="certifications.html">Credentials</a></li>
       </ul>
       <button id="hamburger" class="nav-icon-btn" aria-label="Toggle Menu">☰</button>
     </div>
@@ -198,10 +205,28 @@
     </div>
   </div>
 
+  <!-- JSON-LD Schema for Credentials Page -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationEvent",
+    "name": "Bryan Kum Credentials",
+    "url": "https://bkum-05.github.io/certifications.html"
+  }
+  </script>
+
   <script src="https://cdn.jsdelivr.net/npm/gsap@latest/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@latest/dist/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@latest/dist/ScrollSmoother.min.js"></script>
-  <script src="assets/js/main.js"></script>
+  
+  <!-- QoL Feature Elements -->
+  <button id="scroll-to-top" aria-label="Scroll to top">↑</button>
+  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">🌙</button>
+  <div class="search-container" id="search-container">
+    <input type="text" class="search-input" id="search-input" placeholder="Search certifications...">
+  </div>
+
+  <script src="assets/js/main.js" defer></script>
 </body>
 
 </html>

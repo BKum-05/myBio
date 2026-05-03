@@ -18,9 +18,18 @@
   <meta property="og:image" content="https://avatars.githubusercontent.com/u/177133275?v=4">
   <link rel="canonical" href="https://bkum-05.github.io/index.html">
 
+  <!-- Mobile & PWA Meta Tags -->
+  <meta name="theme-color" content="#818cf8">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
   <link rel="icon" type="image/x-icon" href="https://avatars.githubusercontent.com/u/177133275?v=4&size=64">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload"
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    as="style">
   <link
     href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
@@ -50,278 +59,318 @@
     <div id="smooth-content">
       <main class="container">
         <header class="hero" id="about">
-      <div class="hero-inner animate-in">
-        <div class="hero-text">
-          <h1 class="hero-title-container">
-            <span class="name-gradient">Bryan Kum</span>
-            <div class="name-annotation">
-              <span class="annotation-text">Seeking for internships!</span>
-              <svg class="annotation-arrow" width="80" height="50" viewBox="0 0 80 50" fill="none"
-                xmlns="http://www.w3.org/2000/svg" aria-label="Annotation pointing to text">
-                <path d="M10 40C20 30 40 10 70 8" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round"
-                  stroke-dasharray="2 1" />
-                <path d="M60 2L72 9L64 18" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </svg>
-            </div>
-          </h1>
+          <div class="hero-inner animate-in">
+            <div class="hero-text">
+              <h1 class="hero-title-container">
+                <span class="name-gradient">Bryan Kum</span>
+                <div class="name-annotation">
+                  <span class="annotation-text">Seeking for internships!</span>
+                  <svg class="annotation-arrow" width="80" height="50" viewBox="0 0 80 50" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" aria-label="Annotation pointing to text">
+                    <path d="M10 40C20 30 40 10 70 8" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round"
+                      stroke-dasharray="2 1" />
+                    <path d="M60 2L72 9L64 18" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                </div>
+              </h1>
 
-          <p>A multi-disciplinary <strong>IT Student</strong> at <strong>TAR UMT Penang</strong>, focusing in secure,
-            user-centric software systems.</p>
+              <p>A multi-disciplinary <strong>IT Student</strong> at <strong>TAR UMT Penang</strong>, focusing in
+                secure,
+                user-centric software systems.</p>
 
-          <div class="resume-card">
-            <div class="resume-left">
-              <div class="resume-icon">
-                <i class="fa-solid fa-file-pdf"></i>
+              <div class="resume-card">
+                <div class="resume-left">
+                  <div class="resume-icon">
+                    <i class="fa-solid fa-file-pdf"></i>
+                  </div>
+                  <div class="resume-meta">
+                    <span class="file-name">Bryan Kum Zhan Kin.pdf</span>
+                    <span class="file-info">Full Resume • <span id="dynamic-date"></span></span>
+                  </div>
+                </div>
+                <a href="assets/Resume - Bryan Kum Zhan Kin.pdf" class="cta-button mini-btn" target="_blank">
+                  <i class="fa-solid fa-download"></i> Download
+                </a>
               </div>
-              <div class="resume-meta">
-                <span class="file-name">Bryan Kum Zhan Kin.pdf</span>
-                <span class="file-info">Full Resume • <span id="dynamic-date"></span></span>
-              </div>
             </div>
-            <a href="assets/Resume - Bryan Kum Zhan Kin.pdf" class="cta-button mini-btn" target="_blank">
-              <i class="fa-solid fa-download"></i> Download
-            </a>
+
+            <div class="hero-avatar-wrapper">
+              <img src="assets/bryankum05.jpg" alt="Bryan Kum Headshot" class="hero-avatar" loading="lazy">
+              <p class="location-tag">
+                <i class="fa-solid fa-location-dot" style="color: #ef4444;"></i> Penang, Malaysia
+              </p>
+            </div>
           </div>
-        </div>
+        </header>
 
-        <div class="hero-avatar-wrapper">
-          <img src="assets/bryankum05.jpg" alt="Bryan Kum Headshot" class="hero-avatar" loading="lazy">
-          <p class="location-tag">
-            <i class="fa-solid fa-location-dot" style="color: #ef4444;"></i> Penang, Malaysia
-          </p>
-        </div>
-      </div>
-    </header>
-
-    <section id="education">
-      <h2>Education</h2>
-      <div class="timeline-container">
-        <div class="timeline-line">
-          <div class="timeline-filler"></div>
-        </div>
-        <article class="timeline-item">
-          <div class="timeline-content">
-            <span class="timeline-date">2026 — Present</span>
-            <h3>Bachelor in IT (Honours)<br>(Software Systems Development)</h3>
-            <p>TAR UMT Penang Branch</p>
+        <section id="education">
+          <h2>Education</h2>
+          <div class="timeline-container">
+            <div class="timeline-line">
+              <div class="timeline-filler"></div>
+            </div>
+            <article class="timeline-item">
+              <div class="timeline-content">
+                <span class="timeline-date">2026 — Present</span>
+                <h3>Bachelor in IT (Honours)<br>(Software Systems Development)</h3>
+                <p>TAR UMT Penang Branch</p>
+                <p style="font-size: 0.9rem; margin-top: 0.5rem; opacity: 0.8;">CGPA: | Expected Graduation: 2028</p>
+              </div>
+            </article>
+            <article class="timeline-item">
+              <div class="timeline-content">
+                <span class="timeline-date">2023 — 2025</span>
+                <h3>Diploma in Computer Science</h3>
+                <p>TAR UMT Penang Branch</p>
+                <p style="font-size: 0.9rem; margin-top: 0.5rem; opacity: 0.8;">CGPA: 3.0762 | Graduated with Merit</p>
+              </div>
+            </article>
           </div>
-        </article>
-        <article class="timeline-item">
-          <div class="timeline-content">
-            <span class="timeline-date">2023 — 2025</span>
-            <h3>Diploma in Computer Science</h3>
-            <p>TAR UMT Penang Branch</p>
-            <p style="font-size: 0.9rem; margin-top: 0.5rem; opacity: 0.8;">CGPA: 3.0762 | Graduated with Merit</p>
+        </section>
+
+        <section id="experience">
+          <h2>Experience</h2>
+          <div class="bento-grid">
+            <article class="card">
+              <i class="fa-solid fa-briefcase card-icon"></i>
+              <h3>IT Intern</h3>
+              <p class="entry-meta">AMARI SPICE Penang, Bayan Lepas, Penang</p>
+              <p class="entry-meta">Oct 2024 - Jan 2025</p>
+              <ul class="entry-list">
+                <li>Maintained IT asset inventory by labeling and organizing network devices.</li>
+                <li>Used Command Prompt tools to extract and analyze system information for system verification.</li>
+                <li>Developed cybersecurity awareness posters to promote safe online practices among staff.</li>
+                <li>Undertook hands-on fire safety and emergency response drills to improve workplace safety awareness.
+                </li>
+              </ul>
+            </article>
           </div>
-        </article>
-      </div>
-    </section>
+        </section>
 
-    <section id="experience">
-      <h2>Experience</h2>
-      <div class="bento-grid">
-        <article class="card">
-          <i class="fa-solid fa-briefcase card-icon"></i>
-          <h3>IT Intern</h3>
-          <p class="entry-meta">AMARI SPICE Penang, Bayan Lepas, Penang</p>
-          <p class="entry-meta">Oct 2024 - Jan 2025</p>
-          <ul class="entry-list">
-            <li>Maintained IT asset inventory by labeling and organizing network devices.</li>
-            <li>Used Command Prompt tools to extract and analyze system information for system verification.</li>
-            <li>Developed cybersecurity awareness posters to promote safe online practices among staff.</li>
-            <li>Undertook hands-on fire safety and emergency response drills to improve workplace safety awareness.</li>
-          </ul>
-        </article>
-      </div>
-    </section>
+        <section id="activities">
+          <h2>Leadership & Activities</h2>
+          <div class="bento-grid">
+            <article class="card">
+              <i class="fa-solid fa-laptop-code card-icon"></i>
+              <h3>IT Team Member</h3>
+              <p class="entry-meta">Organising Committee Member<br>TAR UMT x ACCA Business Game 2026</p>
+              <ul class="entry-list">
+                <li>Maintained digital tools such as QR systems.</li>
+                <li>Resolved technical issues during event operations.</li>
+                <li>Helped ensure data protection and system reliability.</li>
+              </ul>
+            </article>
 
-    <section id="activities">
-      <h2>Leadership & Activities</h2>
-      <div class="bento-grid">
-        <article class="card">
-          <i class="fa-solid fa-laptop-code card-icon"></i>
-          <h3>IT Team Member</h3>
-          <p class="entry-meta">Organising Committee Member<br>TAR UMT x ACCA Business Game 2026</p>
-          <ul class="entry-list">
-            <li>Maintained digital tools such as QR systems.</li>
-            <li>Resolved technical issues during event operations.</li>
-            <li>Helped ensure data protection and system reliability.</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <i class="fa-solid fa-id-card card-icon"></i>
-          <h3>O-Kit Department</h3>
-          <p class="entry-meta">Organising Committee Member<br>June Orientation Week 2024, TAR UMT</p>
-          <ul class="entry-list">
-            <li>Onboarded 500+ new students to campus.</li>
-            <li>Optimized kit assembly through team coordination.</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <section id="interests">
-      <h2>Interests & Focus</h2>
-      <div class="bento-grid">
-        <div class="card">
-          <i class="fa-solid fa-code card-icon"></i>
-          <h3>Web Development</h3>
-          <p>Combining modern frontend architecture with scalable backend solutions to build seamless web experiences.
-          </p>
-        </div>
-        <div class="card">
-          <i class="fa-solid fa-shield-halved card-icon"></i>
-          <h3>Security</h3>
-          <p>Adopting a defensive security mindset in development to ensure software is robust against modern threats.
-          </p>
-        </div>
-        <div class="card">
-          <i class="fa-solid fa-pen-nib card-icon"></i>
-          <h3>UI/UX Design</h3>
-          <p>Focusing on user-centered design principles and wireframing to create intuitive, accessible interfaces.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects">
-      <h2>Featured Projects</h2>
-      <article class="project-card">
-        <div class="project-header">
-          <div>
-            <h3>Visitor Management System</h3>
-            <p>A role-based visitor flow platform designed for faster check-ins.</p>
+            <article class="card">
+              <i class="fa-solid fa-id-card card-icon"></i>
+              <h3>O-Kit Department</h3>
+              <p class="entry-meta">Organising Committee Member<br>June Orientation Week 2024, TAR UMT</p>
+              <ul class="entry-list">
+                <li>Onboarded 500+ new students to campus.</li>
+                <li>Optimized kit assembly through team coordination.</li>
+              </ul>
+            </article>
           </div>
-          <span class="project-status completed">Completed</span>
-        </div>
+        </section>
 
-        <div class="tech-stack">
-          <span class="tech-badge tech-html">
-            <img src="https://www.svgrepo.com/show/452228/html-5.svg" alt="HTML logo" class="tech-badge-logo"> HTML
-          </span>
-          <span class="tech-badge tech-css">
-            <img src="https://www.svgrepo.com/show/349330/css3.svg" alt="CSS logo" class="tech-badge-logo"> CSS
-          </span>
-          <span class="tech-badge tech-js">
-            <img src="https://www.svgrepo.com/show/303206/javascript-logo.svg" alt="JavaScript logo" class="tech-badge-logo"> JavaScript
-          </span>
-          <span class="tech-badge tech-firebase">
-            <img src="https://cdn.worldvectorlogo.com/logos/firebase-1.svg" alt="Firebase logo" class="tech-badge-logo"> Firebase
-          </span>
-          <span class="tech-badge tech-responsive">
-            <i class="fa-solid fa-mobile"></i> Responsive
-          </span>
-        </div>
-
-        <ul>
-          <li>Built a secure <strong>role-based system</strong> with separate Visitor, Host, and Admin workflows.</li>
-          <li>Implemented visitor pre-registration, manual check-in, direct check-out, and searchable logs.</li>
-          <li>Connected <strong>Firebase Authentication</strong> and <strong>Firestore</strong> for real-time data and
-            access control.</li>
-          <li>Designed a polished, mobile-friendly UI and deployed it for public access on <strong>GitHub
-              Pages</strong>.</li>
-        </ul>
-
-        <div class="project-links">
-          <a href="https://bkum-05.github.io/visitor-flow/" target="_blank" class="gh-link primary">
-            <i class="fa-solid fa-up-right-from-square"></i> Live Demo
-          </a>
-          <a href="https://github.com/BKum-05/visitor-flow" target="_blank" class="gh-link">
-            <i class="fa-brands fa-github"></i> View Source
-          </a>
-        </div>
-      </article>
-
-      <article class="project-card">
-        <div class="project-header">
-          <div>
-            <h3>AI Attendance System with Geo-Fencing</h3>
-            <p>An attendance solution designed to eliminate loopholes through physical validation.</p>
+        <section id="interests">
+          <h2>Interests & Focus</h2>
+          <div class="bento-grid">
+            <div class="card">
+              <i class="fa-solid fa-code card-icon"></i>
+              <h3>Web Development</h3>
+              <p>Combining modern frontend architecture with scalable backend solutions to build seamless web
+                experiences.
+              </p>
+            </div>
+            <div class="card">
+              <i class="fa-solid fa-shield-halved card-icon"></i>
+              <h3>Security</h3>
+              <p>Adopting a defensive security mindset in development to ensure software is robust against modern
+                threats.
+              </p>
+            </div>
+            <div class="card">
+              <i class="fa-solid fa-pen-nib card-icon"></i>
+              <h3>UI/UX Design</h3>
+              <p>Focusing on user-centered design principles and wireframing to create intuitive, accessible interfaces.
+              </p>
+            </div>
           </div>
-          <span class="project-status">In Development</span>
-        </div>
+        </section>
 
-        <div class="tech-stack">
-          <!-- <span class="tech-badge tech-flutter">
-            <i class="fa-solid fa-mobile"></i> Flutter
-          </span> -->
-          <span class="tech-badge tech-html">
-            <img src="https://www.svgrepo.com/show/452228/html-5.svg" alt="HTML logo" class="tech-badge-logo"> HTML
-          </span>
-          <span class="tech-badge tech-css">
-            <img src="https://www.svgrepo.com/show/349330/css3.svg" alt="CSS logo" class="tech-badge-logo"> CSS
-          </span>
-          <span class="tech-badge tech-js">
-            <img src="https://www.svgrepo.com/show/303206/javascript-logo.svg" alt="JavaScript logo" class="tech-badge-logo"> JavaScript
-          </span>
-          <span class="tech-badge tech-gps">
-            <img src="https://uxwing.com/wp-content/themes/uxwing/download/location-travel-map/pin-location-icon.png" alt="GPS logo" class="tech-badge-logo"> GPS
-          </span>
-          <span class="tech-badge tech-qr">
-            <i class="fa-solid fa-qrcode"></i> QR Code
-          </span>
-        </div>
+        <section id="projects">
+          <h2>Featured Projects</h2>
+          <article class="project-card">
+            <div class="project-header">
+              <div>
+                <h3>Visitor Management System</h3>
+                <p>A role-based visitor flow platform designed for faster check-ins.</p>
+              </div>
+              <span class="project-status completed">Completed</span>
+            </div>
 
-        <ul>
-          <li>Prevents attendance fraud using <strong>GPS geo-fencing</strong> and dynamic <strong>QR code</strong>
-            validation.</li>
-          <li>Ensures students are within a 300m radius of the classroom during check-in.</li>
-          <li>Developing a <strong>Flutter</strong> mobile application to leverage native camera and location
-            performance.</li>
-        </ul>
-      </article>
+            <div class="tech-stack">
+              <span class="tech-badge tech-html">
+                <img src="https://www.svgrepo.com/show/452228/html-5.svg" alt="HTML logo" class="tech-badge-logo"> HTML
+              </span>
+              <span class="tech-badge tech-css">
+                <img src="https://www.svgrepo.com/show/349330/css3.svg" alt="CSS logo" class="tech-badge-logo"> CSS
+              </span>
+              <span class="tech-badge tech-js">
+                <img src="https://www.svgrepo.com/show/303206/javascript-logo.svg" alt="JavaScript logo"
+                  class="tech-badge-logo"> JavaScript
+              </span>
+              <span class="tech-badge tech-firebase">
+                <img src="https://cdn.worldvectorlogo.com/logos/firebase-1.svg" alt="Firebase logo"
+                  class="tech-badge-logo"> Firebase
+              </span>
+              <span class="tech-badge tech-responsive">
+                <i class="fa-solid fa-mobile"></i> Responsive
+              </span>
+            </div>
 
-      <article class="project-card">
-        <div class="project-header">
-          <div>
-            <h3>Expense Tracker Dashboard<br>(IBM Guided Capstone Project)</h3>
-            <p>A high-performance financial management tool built for clarity and mobile accessibility.</p>
-          </div>
-          <span class="project-status completed">Completed</span>
-        </div>
+            <ul>
+              <li>Built a secure <strong>role-based system</strong> with separate Visitor, Host, and Admin workflows.
+              </li>
+              <li>Implemented visitor pre-registration, manual check-in, direct check-out, and searchable logs.</li>
+              <li>Connected <strong>Firebase Authentication</strong> and <strong>Firestore</strong> for real-time data
+                and
+                access control.</li>
+              <li>Designed a polished, mobile-friendly UI and deployed it for public access on <strong>GitHub
+                  Pages</strong>.</li>
+            </ul>
 
-        <div class="tech-stack">
-          <span class="tech-badge tech-react">
-            <img src="https://www.svgrepo.com/show/354259/react.svg" alt="React logo" class="tech-badge-logo"> React
-          </span>
-          <span class="tech-badge tech-css">
-            <img src="https://www.svgrepo.com/show/349330/css3.svg" alt="CSS logo" class="tech-badge-logo"> CSS
-          </span>
-          <span class="tech-badge tech-js">
-            <img src="https://www.svgrepo.com/show/303206/javascript-logo.svg" alt="JavaScript logo" class="tech-badge-logo"> JavaScript
-          </span>
-          <span class="tech-badge tech-responsive">
-            <i class="fa-solid fa-mobile"></i> Responsive
-          </span>
-        </div>
+            <div class="project-links">
+              <a href="https://bkum-05.github.io/visitor-flow/" target="_blank" class="gh-link primary">
+                <i class="fa-solid fa-up-right-from-square"></i> Live Demo
+              </a>
+              <a href="https://github.com/BKum-05/visitor-flow" target="_blank" class="gh-link">
+                <i class="fa-brands fa-github"></i> View Source
+              </a>
+            </div>
+          </article>
 
-        <ul>
-          <li>Developed responsive <strong>React</strong> dashboard with real-time expense calculations.</li>
-          <li>Seamless CRUD operations via interactive modals and optimized state management.</li>
-          <li>Deployed live on <strong>GitHub Pages</strong> for public demonstration.</li>
-        </ul>
+          <article class="project-card">
+            <div class="project-header">
+              <div>
+                <h3>AI Attendance System with Geo-Fencing</h3>
+                <p>An attendance solution designed to eliminate loopholes through physical validation.</p>
+              </div>
+              <span class="project-status">In Development</span>
+            </div>
 
-        <div class="project-links">
-          <a href="https://bkum-05.github.io/M4-Dashboard/" target="_blank" class="gh-link primary">
-            <i class="fa-solid fa-up-right-from-square"></i> Live Demo
-          </a>
-          <a href="https://github.com/BKum-05/M4-Dashboard" target="_blank" class="gh-link">
-            <i class="fa-brands fa-github"></i> View Source
-          </a>
-        </div>
-      </article>
-    </section>
+            <div class="tech-stack">
+
+              <span class="tech-badge tech-html">
+                <img src="https://www.svgrepo.com/show/452228/html-5.svg" alt="HTML logo" class="tech-badge-logo"> HTML
+              </span>
+              <span class="tech-badge tech-css">
+                <img src="https://www.svgrepo.com/show/349330/css3.svg" alt="CSS logo" class="tech-badge-logo"> CSS
+              </span>
+              <span class="tech-badge tech-js">
+                <img src="https://www.svgrepo.com/show/303206/javascript-logo.svg" alt="JavaScript logo"
+                  class="tech-badge-logo"> JavaScript
+              </span>
+              <span class="tech-badge tech-gps">
+                <img
+                  src="https://uxwing.com/wp-content/themes/uxwing/download/location-travel-map/pin-location-icon.png"
+                  alt="GPS logo" class="tech-badge-logo"> GPS
+              </span>
+              <span class="tech-badge tech-qr">
+                <i class="fa-solid fa-qrcode"></i> QR Code
+              </span>
+            </div>
+
+            <ul>
+              <li>Prevents attendance fraud using <strong>GPS geo-fencing</strong> and dynamic <strong>QR code</strong>
+                validation.</li>
+              <li>Ensures students are within a 300m radius of the classroom during check-in.</li>
+              <li>Developing a <strong>Flutter</strong> mobile application to leverage native camera and location
+                performance.</li>
+            </ul>
+          </article>
+
+          <article class="project-card">
+            <div class="project-header">
+              <div>
+                <h3>Expense Tracker Dashboard<br>(IBM Guided Capstone Project)</h3>
+                <p>A high-performance financial management tool built for clarity and mobile accessibility.</p>
+              </div>
+              <span class="project-status completed">Completed</span>
+            </div>
+
+            <div class="tech-stack">
+              <span class="tech-badge tech-react">
+                <img src="https://www.svgrepo.com/show/354259/react.svg" alt="React logo" class="tech-badge-logo"> React
+              </span>
+              <span class="tech-badge tech-css">
+                <img src="https://www.svgrepo.com/show/349330/css3.svg" alt="CSS logo" class="tech-badge-logo"> CSS
+              </span>
+              <span class="tech-badge tech-js">
+                <img src="https://www.svgrepo.com/show/303206/javascript-logo.svg" alt="JavaScript logo"
+                  class="tech-badge-logo"> JavaScript
+              </span>
+              <span class="tech-badge tech-responsive">
+                <i class="fa-solid fa-mobile"></i> Responsive
+              </span>
+            </div>
+
+            <ul>
+              <li>Developed responsive <strong>React</strong> dashboard with real-time expense calculations.</li>
+              <li>Seamless CRUD operations via interactive modals and optimized state management.</li>
+              <li>Deployed live on <strong>GitHub Pages</strong> for public demonstration.</li>
+            </ul>
+
+            <div class="project-links">
+              <a href="https://bkum-05.github.io/M4-Dashboard/" target="_blank" class="gh-link primary">
+                <i class="fa-solid fa-up-right-from-square"></i> Live Demo
+              </a>
+              <a href="https://github.com/BKum-05/M4-Dashboard" target="_blank" class="gh-link">
+                <i class="fa-brands fa-github"></i> View Source
+              </a>
+            </div>
+          </article>
+        </section>
       </main>
 
       <footer id="main-footer"></footer>
     </div>
   </div>
 
+  <!-- JSON-LD Schema for Profile Page -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "name": "Bryan Kum | Portfolio",
+    "url": "https://bkum-05.github.io/",
+    "image": "https://avatars.githubusercontent.com/u/177133275?v=4",
+    "describes": {
+      "@type": "Person",
+      "name": "Bryan Kum",
+      "url": "https://bkum-05.github.io/",
+      "image": "https://avatars.githubusercontent.com/u/177133275?v=4",
+      "sameAs": [
+        "https://github.com/BKum-05",
+        "https://www.linkedin.com/in/bryan-kum-11b184330"
+      ]
+    }
+  }
+  </script>
+
   <script src="https://cdn.jsdelivr.net/npm/gsap@latest/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@latest/dist/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@latest/dist/ScrollSmoother.min.js"></script>
-  <script src="assets/js/main.js"></script>
+
+  <button id="scroll-to-top" aria-label="Scroll to top">↑</button>
+  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">🌙</button>
+  <div class="search-container" id="search-container">
+    <input type="text" class="search-input" id="search-input" placeholder="Search projects & skills...">
+  </div>
+
+  <script src="assets/js/main.js" defer></script>
 </body>
 
 </html>
