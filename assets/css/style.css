@@ -845,6 +845,17 @@ body.light-mode .tech-badge {
     transform: translateY(-2px);
 }
 
+.tech-vertexai {
+    background: rgba(14, 165, 233, 0.15);
+    color: #0ea5e9;
+    border-color: #0ea5e9;
+}
+
+.tech-vertexai:hover {
+    background: rgba(14, 165, 233, 0.25);
+    transform: translateY(-2px);
+}
+
 .tech-qr {
     background: rgba(168, 85, 247, 0.15);
     color: var(--accent);
@@ -919,6 +930,17 @@ body.light-mode .tech-badge {
 
 .tech-firebase:hover {
     background: rgba(245, 158, 11, 0.25);
+    transform: translateY(-2px);
+}
+
+.tech-aistudio {
+    background: rgba(20, 184, 166, 0.15);
+    color: #14b8a6;
+    border-color: #14b8a6;
+}
+
+.tech-aistudio:hover {
+    background: rgba(20, 184, 166, 0.25);
     transform: translateY(-2px);
 }
 
@@ -1559,6 +1581,7 @@ body.gsap-active .animate-in {
 
 .certs-grid-engagement {
     margin-top: 2rem;
+    grid-template-columns: 1fr;
 }
 
 .engagement-card {
@@ -1566,11 +1589,6 @@ body.gsap-active .animate-in {
     text-align: left;
 }
 
-.engagement-role {
-    margin: 0.55rem 0 0;
-    font-size: 0.92rem;
-    color: var(--text-muted);
-}
 
 .workshop-link-wrap {
     margin: 0.75rem 0 0;
