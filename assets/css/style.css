@@ -787,6 +787,19 @@ body.light-mode .project-status.completed {
     border-color: rgba(34, 197, 94, 0.45);
 }
 
+/* Experimental status (amber/orange) */
+.project-status.experimental {
+    background: rgba(245, 158, 11, 0.12);
+    color: #f59e0b;
+    border-color: #f59e0b;
+}
+
+body.light-mode .project-status.experimental {
+    background: rgba(245, 158, 11, 0.09);
+    color: #92400e;
+    border-color: rgba(245, 158, 11, 0.35);
+}
+
 /* Tech Stack Badges */
 .tech-stack {
     display: flex;
@@ -853,6 +866,17 @@ body.light-mode .tech-badge {
 
 .tech-vertexai:hover {
     background: rgba(14, 165, 233, 0.25);
+    transform: translateY(-2px);
+}
+
+.tech-ts {
+    background: rgba(56, 189, 248, 0.12);
+    color: #38bdf8;
+    border-color: #38bdf8;
+}
+
+.tech-ts:hover {
+    background: rgba(56, 189, 248, 0.22);
     transform: translateY(-2px);
 }
 
@@ -1589,6 +1613,11 @@ body.gsap-active .animate-in {
     text-align: left;
 }
 
+.engagement-role {
+    margin: 0.55rem 0 0;
+    font-size: 0.92rem;
+    color: var(--text-muted);
+}
 
 .workshop-link-wrap {
     margin: 0.75rem 0 0;
@@ -1652,6 +1681,26 @@ body.gsap-active .animate-in {
     .hero-inner {
         padding: 3rem;
         gap: 3rem;
+    }
+
+    .resume-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .resume-left {
+        width: 100%;
+    }
+
+    .resume-meta {
+        white-space: normal;
+        word-break: normal;
+    }
+
+    .file-name {
+        white-space: normal;
+        text-overflow: initial;
     }
 
     .project-card {
@@ -2211,20 +2260,13 @@ body.light-mode .search-input::placeholder {
 
 @media (max-width: 600px) {
     .resume-card {
-        flex-direction: column;
         align-items: center;
         text-align: center;
-        gap: 20px;
         padding: 20px;
     }
 
-    .resume-left {
-        width: 100%;
-    }
-
     .resume-meta {
-        white-space: nowrap;
-        word-break: break-all;
+        align-items: center;
     }
 
     .mini-btn {
